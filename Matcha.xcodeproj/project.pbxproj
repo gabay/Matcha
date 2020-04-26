@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		613EE0682451ED25008043D0 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EE0672451ED25008043D0 /* SetViewController.m */; };
+		613EE06B2451F2DA008043D0 /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EE06A2451F2DA008043D0 /* MatchViewController.m */; };
 		61C9BDD9244F19F600A351EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C9BDD8244F19F600A351EF /* AppDelegate.m */; };
 		61C9BDDC244F19F600A351EF /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C9BDDB244F19F600A351EF /* SceneDelegate.m */; };
 		61C9BDDF244F19F600A351EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C9BDDE244F19F600A351EF /* ViewController.m */; };
@@ -19,9 +21,15 @@
 		61C9BDFA244F1D8200A351EF /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C9BDF9244F1D8200A351EF /* PlayingCard.m */; };
 		61C9BDFD244F1D9800A351EF /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C9BDFC244F1D9800A351EF /* PlayingCardDeck.m */; };
 		61C9BE03244F234D00A351EF /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C9BE02244F234D00A351EF /* CardMatchingGame.m */; };
+		61FCEC892451C00B00F1D7AA /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FCEC882451C00B00F1D7AA /* SetCard.m */; };
+		61FCEC8C2451C58200F1D7AA /* SetDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FCEC8B2451C58200F1D7AA /* SetDeck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		613EE0662451ED25008043D0 /* SetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
+		613EE0672451ED25008043D0 /* SetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
+		613EE0692451F2DA008043D0 /* MatchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchViewController.h; sourceTree = "<group>"; };
+		613EE06A2451F2DA008043D0 /* MatchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchViewController.m; sourceTree = "<group>"; };
 		61C9BDD4244F19F600A351EF /* Matcha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matcha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C9BDD7244F19F600A351EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		61C9BDD8244F19F600A351EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -44,6 +52,10 @@
 		61C9BDFC244F1D9800A351EF /* PlayingCardDeck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
 		61C9BE01244F234D00A351EF /* CardMatchingGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardMatchingGame.h; sourceTree = "<group>"; };
 		61C9BE02244F234D00A351EF /* CardMatchingGame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardMatchingGame.m; sourceTree = "<group>"; };
+		61FCEC872451C00B00F1D7AA /* SetCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetCard.h; sourceTree = "<group>"; };
+		61FCEC882451C00B00F1D7AA /* SetCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetCard.m; sourceTree = "<group>"; };
+		61FCEC8A2451C58200F1D7AA /* SetDeck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetDeck.h; sourceTree = "<group>"; };
+		61FCEC8B2451C58200F1D7AA /* SetDeck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetDeck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +90,10 @@
 			children = (
 				61C9BDDD244F19F600A351EF /* ViewController.h */,
 				61C9BDDE244F19F600A351EF /* ViewController.m */,
+				613EE0692451F2DA008043D0 /* MatchViewController.h */,
+				613EE06A2451F2DA008043D0 /* MatchViewController.m */,
+				613EE0662451ED25008043D0 /* SetViewController.h */,
+				613EE0672451ED25008043D0 /* SetViewController.m */,
 				61C9BDE0244F19F600A351EF /* Main.storyboard */,
 				61C9BDE3244F19F800A351EF /* Assets.xcassets */,
 				61C9BDE5244F19F800A351EF /* LaunchScreen.storyboard */,
@@ -111,6 +127,10 @@
 				61C9BDF9244F1D8200A351EF /* PlayingCard.m */,
 				61C9BDFB244F1D9800A351EF /* PlayingCardDeck.h */,
 				61C9BDFC244F1D9800A351EF /* PlayingCardDeck.m */,
+				61FCEC872451C00B00F1D7AA /* SetCard.h */,
+				61FCEC882451C00B00F1D7AA /* SetCard.m */,
+				61FCEC8A2451C58200F1D7AA /* SetDeck.h */,
+				61FCEC8B2451C58200F1D7AA /* SetDeck.m */,
 				61C9BE01244F234D00A351EF /* CardMatchingGame.h */,
 				61C9BE02244F234D00A351EF /* CardMatchingGame.m */,
 			);
@@ -191,11 +211,15 @@
 				61C9BDFD244F1D9800A351EF /* PlayingCardDeck.m in Sources */,
 				61C9BE03244F234D00A351EF /* CardMatchingGame.m in Sources */,
 				61C9BDDF244F19F600A351EF /* ViewController.m in Sources */,
+				61FCEC892451C00B00F1D7AA /* SetCard.m in Sources */,
+				613EE0682451ED25008043D0 /* SetViewController.m in Sources */,
 				61C9BDFA244F1D8200A351EF /* PlayingCard.m in Sources */,
 				61C9BDD9244F19F600A351EF /* AppDelegate.m in Sources */,
+				613EE06B2451F2DA008043D0 /* MatchViewController.m in Sources */,
 				61C9BDEA244F19F800A351EF /* main.m in Sources */,
 				61C9BDF7244F1D7200A351EF /* Deck.m in Sources */,
 				61C9BDDC244F19F600A351EF /* SceneDelegate.m in Sources */,
+				61FCEC8C2451C58200F1D7AA /* SetDeck.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +362,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KG6GWND6BG;
 				INFOPLIST_FILE = Matcha/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -355,6 +380,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KG6GWND6BG;
 				INFOPLIST_FILE = Matcha/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

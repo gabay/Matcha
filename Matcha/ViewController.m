@@ -8,11 +8,9 @@
 
 #import "ViewController.h"
 #import "CardMatchingGame.h"
-#import "PlayingCardDeck.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *gameModeSelector;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (strong, nonatomic) CardMatchingGame *game;
@@ -21,18 +19,26 @@
 @implementation ViewController
 
 - (CardMatchingGame *)game {
-    if (!_game)
+    if (!_game) {
+        NSLog(@"Creating game with %ld cards", [self.cardButtons count]);
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                    usingDeck:[self makeDeck]
-                                                      match3:[self.gameModeSelector selectedSegmentIndex] == 0 ? NO : YES];
+                                                      matchSize:[self getMatchSize]];
+    }
     return _game;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    NSLog(@"%@ loaded", self.class);
+    [self updateUI];
 }
 
 - (IBAction)touchCard:(UIButton *)sender
 {
     unsigned long buttonIndex = [self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:buttonIndex];
-    self.gameModeSelector.enabled = NO;
     [self updateUI];
 }
 
@@ -40,12 +46,7 @@
 {
     // Redraw cards and reset score
     self.game = nil;
-    self.gameModeSelector.enabled = YES;
     [self updateUI];
-}
-- (IBAction)touch23match:(UISegmentedControl *)sender
-{
-    self.game.match3 = [sender selectedSegmentIndex] == 0 ? NO : YES;
 }
 
 - (void)updateUI
@@ -54,33 +55,57 @@
         unsigned long buttonIndex = [self.cardButtons indexOfObject:button];
         Card *card = [self.game cardAtIndex:buttonIndex];
         [button setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
-        [button setTitle:[self titleForCard:card] forState:UIControlStateNormal];
+        [button setAttributedTitle:[self titleForCard:card] forState:UIControlStateNormal];
         button.enabled = !card.matched;
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
-    if (self.game.scoreDiff == 0) {
-        self.statusLabel.text = self.game.cardsChanged;
-    } else if (self.game.scoreDiff > 0) {
-        self.statusLabel.text = [NSString stringWithFormat:@"Matched %@ for %ld points", self.game.cardsChanged, self.game.scoreDiff];
-    } else {
-        self.statusLabel.text = [NSString stringWithFormat:@"%@ don't match! %ld points", self.game.cardsChanged, self.game.scoreDiff];
+    [self updateStatus];
+}
+
+- (void)updateStatus
+{
+    NSMutableAttributedString *status = [[NSMutableAttributedString alloc] init];
+    for (Card *card in self.game.cardsChanged) {
+        [status appendAttributedString:[self titleForStatus:card]];
+        [status appendAttributedString:[[NSAttributedString alloc] initWithString:@", "]];
     }
+    if (self.game.scoreDiff > 0) {
+        NSString *text = [NSString stringWithFormat:@"Matched! %ld points", self.game.scoreDiff];
+        [status appendAttributedString:[[NSAttributedString alloc] initWithString:text]];
+    } else if (self.game.scoreDiff < 0) {
+        NSString *text = [NSString stringWithFormat:@"Don't match! %ld points", self.game.scoreDiff];
+        [status appendAttributedString:[[NSAttributedString alloc] initWithString:text]];
+    }
+    [self.statusLabel setAttributedText:status];
 }
 
 - (Deck *)makeDeck
 {
-    return [[PlayingCardDeck alloc] init];
+    return nil;
+}
+                 
+- (unsigned int)getMatchSize
+{
+    return 0;
 }
 
-- (NSString *)titleForCard:(Card *)card
+- (NSAttributedString *)titleForCard:(Card *)card
 {
-    return card.chosen? card.contents : @"";
+    return nil;
 }
+
+- (NSAttributedString *)titleForStatus:(Card *)card
+{
+    return nil;
+}
+
+
 
 - (UIImage *)backgroundImageForCard:(Card *)card
 {
     return [UIImage imageNamed:card.chosen ? @"cardfront" : @"cardback"];
 }
+
 
 
 @end

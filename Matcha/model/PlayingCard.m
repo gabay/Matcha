@@ -61,11 +61,15 @@
 - (int)match:(NSArray *)otherCards
 {
     int score = 0;
-    for (PlayingCard *other in otherCards) {
-        if (self.rank == other.rank)
-            score += 16;
-        else if (self.suit == other.suit)
-            score += 4;
+    if (otherCards.count) {
+        score = [[otherCards firstObject]
+                 match:[otherCards subarrayWithRange:NSMakeRange(1, otherCards.count - 1)]];
+        for (PlayingCard *other in otherCards) {
+            if (self.rank == other.rank)
+                score += 16;
+            else if (self.suit == other.suit)
+                score += 4;
+        }
     }
     return score;
 }

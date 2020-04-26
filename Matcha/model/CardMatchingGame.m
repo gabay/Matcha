@@ -11,7 +11,7 @@
 @interface CardMatchingGame()
 @property (nonatomic, readwrite) NSInteger score;
 @property (nonatomic, readwrite) NSInteger scoreDiff;
-@property (nonatomic, readwrite) NSString *cardsChanged;
+@property (nonatomic, readwrite) NSArray *cardsChanged;
 @property (nonatomic, strong) NSMutableArray *cards;
 @end
 
@@ -26,25 +26,26 @@ static const int MOVE_PENALTY = 1;
     return _cards;
 }
 
-- (NSString *)cardsChanged
+- (NSArray *)cardsChanged
 {
-    if (!_cardsChanged) _cardsChanged = @"";
+    if (!_cardsChanged) _cardsChanged = @[];
     return _cardsChanged;
 }
 
-- (instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck match3:(BOOL)match3
+- (instancetype)initWithCardCount:(NSUInteger)count
+                        usingDeck:(Deck *)deck
+                        matchSize:(unsigned int)matchSize
 {
     if (self = [super init]) {
         for (int i = 0; i < count; i++) {
             Card *card = [deck drawRandomCard];
-            if (card) {
-                [self.cards addObject:card];
-            } else {
+            if (!card) {
                 self = nil;
                 break;
             }
+            [self.cards addObject:card];
         }
-        self.match3 = match3;
+        self.matchSize = matchSize;
     }
     return self;
 }
@@ -54,21 +55,20 @@ static const int MOVE_PENALTY = 1;
     Card *card = [self cardAtIndex:index];
     self.scoreDiff = 0;
     if (!card.matched) {
-        self.cardsChanged = [self stringifyCards:@[card]];
+        self.cardsChanged = @[card];
         if (card.chosen) {
             card.chosen = NO;
-            self.cardsChanged = [self stringifyCards:@[]];
+            self.cardsChanged = @[];
         } else {
-            NSArray * chosenCards = [self getChosenCards];
-            if ((self.match3 && chosenCards.count == 2) ||
-                (!self.match3 && chosenCards.count == 1)) {
-                NSArray * currentCards = [chosenCards arrayByAddingObject:card];
-                self.cardsChanged = [self stringifyCards:currentCards];
-                self.scoreDiff = [self getMatchScore:currentCards];
+            NSArray * chosenCardsWithoutCurrent = [self getChosenCards];
+            NSArray * chosenCards = [chosenCardsWithoutCurrent arrayByAddingObject:card];
+            if (self.matchSize == chosenCards.count) {
+                self.cardsChanged = chosenCards;
+                self.scoreDiff = [card match:chosenCardsWithoutCurrent];
                 if (self.scoreDiff) {
-                    [self setMatchedCards:currentCards];
+                    [self setMatchedCards:chosenCards];
                 } else {
-                    [self unchooseCards:chosenCards];
+                    [self unchooseCards:chosenCardsWithoutCurrent];
                     self.scoreDiff = -MISMATCH_PENALTY;
                 }
             }
@@ -110,15 +110,6 @@ static const int MOVE_PENALTY = 1;
     if (cards.count == 3)
         score = score / 2;
     return score;
-}
-
-- (NSString *)stringifyCards:(NSArray *)cards
-{
-    NSMutableString *s = [[NSMutableString alloc] init];
-    for (Card *card in cards) {
-        [s appendFormat:@"%@ ", card.contents];
-    }
-    return s;
 }
 
 - (Card *)cardAtIndex:(NSUInteger)index
