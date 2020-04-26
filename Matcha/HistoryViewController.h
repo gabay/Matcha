@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HistoryViewController : UIViewController
 
+@property (strong, nonatomic) NSArray *moves;
+
 @end
 
 NS_ASSUME_NONNULL_END
