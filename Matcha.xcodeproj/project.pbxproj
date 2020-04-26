@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		613EE0682451ED25008043D0 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EE0672451ED25008043D0 /* SetViewController.m */; };
 		613EE06B2451F2DA008043D0 /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EE06A2451F2DA008043D0 /* MatchViewController.m */; };
+		6154A9192455D6B4008E42EF /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6154A9182455D6B4008E42EF /* HistoryViewController.m */; };
 		61C9BDD9244F19F600A351EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C9BDD8244F19F600A351EF /* AppDelegate.m */; };
 		61C9BDDC244F19F600A351EF /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C9BDDB244F19F600A351EF /* SceneDelegate.m */; };
 		61C9BDDF244F19F600A351EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C9BDDE244F19F600A351EF /* ViewController.m */; };
@@ -30,6 +31,8 @@
 		613EE0672451ED25008043D0 /* SetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
 		613EE0692451F2DA008043D0 /* MatchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchViewController.h; sourceTree = "<group>"; };
 		613EE06A2451F2DA008043D0 /* MatchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchViewController.m; sourceTree = "<group>"; };
+		6154A9172455D6B4008E42EF /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		6154A9182455D6B4008E42EF /* HistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		61C9BDD4244F19F600A351EF /* Matcha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matcha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C9BDD7244F19F600A351EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		61C9BDD8244F19F600A351EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				613EE06A2451F2DA008043D0 /* MatchViewController.m */,
 				613EE0662451ED25008043D0 /* SetViewController.h */,
 				613EE0672451ED25008043D0 /* SetViewController.m */,
+				6154A9172455D6B4008E42EF /* HistoryViewController.h */,
+				6154A9182455D6B4008E42EF /* HistoryViewController.m */,
 				61C9BDE0244F19F600A351EF /* Main.storyboard */,
 				61C9BDE3244F19F800A351EF /* Assets.xcassets */,
 				61C9BDE5244F19F800A351EF /* LaunchScreen.storyboard */,
@@ -212,6 +217,7 @@
 				61C9BE03244F234D00A351EF /* CardMatchingGame.m in Sources */,
 				61C9BDDF244F19F600A351EF /* ViewController.m in Sources */,
 				61FCEC892451C00B00F1D7AA /* SetCard.m in Sources */,
+				6154A9192455D6B4008E42EF /* HistoryViewController.m in Sources */,
 				613EE0682451ED25008043D0 /* SetViewController.m in Sources */,
 				61C9BDFA244F1D8200A351EF /* PlayingCard.m in Sources */,
 				61C9BDD9244F19F600A351EF /* AppDelegate.m in Sources */,
