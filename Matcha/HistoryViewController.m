@@ -8,14 +8,21 @@
 
 #import "HistoryViewController.h"
 
+@interface HistoryViewController()
+@property (weak, nonatomic) IBOutlet UITextView *textarea;
+@end
+
 @implementation HistoryViewController
 
 - (void)viewDidLoad
 {
-    self.moves = @[
-    [[NSAttributedString alloc] initWithString:@"item 1"],
-    [[NSAttributedString alloc] initWithString:@"item 2" attributes:@{NSForegroundColorAttributeName: [UIColor redColor]}],
-    ];
+    if (!self.moves) {
+        NSLog(@"HistoryViewController: Filling with test data");
+        self.moves = @[
+            @[[NSNumber numberWithInt:4],[[NSAttributedString alloc] initWithString:@"item 1"]],
+            @[[NSNumber numberWithInt:-2], [[NSAttributedString alloc] initWithString:@"item 2" attributes:@{NSForegroundColorAttributeName: [UIColor redColor]}]],
+        ];
+    }
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -24,9 +31,16 @@
 
 - (void)updateUI
 {
-    for (NSAttributedString *item in self.moves) {
-        
+    NSMutableAttributedString * text = [[NSMutableAttributedString alloc] init];
+    for (NSArray *item in self.moves) {
+        NSNumber *score = item.firstObject;
+        NSAttributedString *description = item.lastObject;
+        [text appendAttributedString:[[NSAttributedString alloc] initWithString:score.stringValue]];
+        [text appendAttributedString:[[NSAttributedString alloc] initWithString:@"\t"]];
+        [text appendAttributedString:description];
+        [text appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
     }
+    self.textarea.attributedText = text;
 }
 
 @end

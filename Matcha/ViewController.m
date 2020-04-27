@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "HistoryViewController.h"
 #import "CardMatchingGame.h"
 
 @interface ViewController ()
@@ -14,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (strong, nonatomic) CardMatchingGame *game;
+@property (strong, nonatomic) NSMutableArray *moves;    // TODO: this should be part of the model
 @end
 
 @implementation ViewController
@@ -27,12 +29,26 @@
     }
     return _game;
 }
+- (NSMutableArray *)moves {
+    if (!_moves) _moves = [[NSMutableArray alloc] init];
+    return _moves;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSLog(@"%@ loaded", self.class);
     [self updateUI];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showHistory"]) {
+        if ([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
+            HistoryViewController *hvc = (HistoryViewController *)segue.destinationViewController;
+            hvc.moves = self.moves;
+        }
+    }
 }
 
 - (IBAction)touchCard:(UIButton *)sender
@@ -46,6 +62,7 @@
 {
     // Redraw cards and reset score
     self.game = nil;
+    self.moves = nil;
     [self updateUI];
 }
 
@@ -60,6 +77,10 @@
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
     [self updateStatus];
+    if (self.statusLabel.attributedText.length) {
+        [self.moves addObject:@[[NSNumber numberWithLong:self.game.scoreDiff],
+                                  self.statusLabel.attributedText]];
+    }
 }
 
 - (void)updateStatus
@@ -76,7 +97,7 @@
         NSString *text = [NSString stringWithFormat:@"Don't match! %ld points", self.game.scoreDiff];
         [status appendAttributedString:[[NSAttributedString alloc] initWithString:text]];
     }
-    [self.statusLabel setAttributedText:status];
+    self.statusLabel.attributedText = status;
 }
 
 - (Deck *)makeDeck
@@ -98,8 +119,6 @@
 {
     return nil;
 }
-
-
 
 - (UIImage *)backgroundImageForCard:(Card *)card
 {
