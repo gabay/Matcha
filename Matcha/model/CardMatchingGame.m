@@ -17,8 +17,7 @@
 
 @implementation CardMatchingGame
 
-static const int MISMATCH_PENALTY = 2;
-static const int MOVE_PENALTY = 1;
+static const int MISMATCH_PENALTY = -2;
 
 - (NSMutableArray *)cards
 {
@@ -54,27 +53,23 @@ static const int MOVE_PENALTY = 1;
 {
     Card *card = [self cardAtIndex:index];
     self.scoreDiff = 0;
+    self.cardsChanged = @[];
     if (!card.matched) {
-        self.cardsChanged = @[card];
-        if (card.chosen) {
-            card.chosen = NO;
-            self.cardsChanged = @[];
-        } else {
-            NSArray * chosenCardsWithoutCurrent = [self getChosenCards];
-            NSArray * chosenCards = [chosenCardsWithoutCurrent arrayByAddingObject:card];
-            if (self.matchSize == chosenCards.count) {
-                self.cardsChanged = chosenCards;
-                self.scoreDiff = [card match:chosenCardsWithoutCurrent];
+        if (!card.chosen) {
+            NSArray *previouslyChosenCards = [self getChosenCards];
+            self.cardsChanged = [previouslyChosenCards arrayByAddingObject:card];
+            if (self.matchSize == self.cardsChanged.count) {
+                self.scoreDiff = [card match:previouslyChosenCards];
                 if (self.scoreDiff) {
                     [self setMatchedCards:chosenCards];
                 } else {
-                    [self unchooseCards:chosenCardsWithoutCurrent];
-                    self.scoreDiff = -MISMATCH_PENALTY;
+                    [self unchooseCards:previouslyChosenCards];
+                    self.scoreDiff = MISMATCH_PENALTY;
                 }
+                self.score += self.scoreDiff;
             }
-            self.score += self.scoreDiff - MOVE_PENALTY;
-            card.chosen = YES;
         }
+        card.chosen = !card.chosen;
     }
 }
 
