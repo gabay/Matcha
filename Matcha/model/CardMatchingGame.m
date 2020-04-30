@@ -61,7 +61,7 @@ static const int MISMATCH_PENALTY = -2;
             if (self.matchSize == self.cardsChanged.count) {
                 self.scoreDiff = [card match:previouslyChosenCards];
                 if (self.scoreDiff) {
-                    [self setMatchedCards:chosenCards];
+                    [self setMatchedCards:self.cardsChanged];
                 } else {
                     [self unchooseCards:previouslyChosenCards];
                     self.scoreDiff = MISMATCH_PENALTY;
