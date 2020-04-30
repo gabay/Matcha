@@ -12,6 +12,7 @@
 @property (nonatomic, readwrite) NSInteger score;
 @property (nonatomic, readwrite) NSInteger scoreDiff;
 @property (nonatomic, readwrite) NSArray *cardsChanged;
+@property (nonatomic, readwrite) NSArray *moves;
 @property (nonatomic, strong) NSMutableArray *cards;
 @end
 
@@ -29,6 +30,12 @@ static const int MISMATCH_PENALTY = -2;
 {
     if (!_cardsChanged) _cardsChanged = @[];
     return _cardsChanged;
+}
+
+- (NSArray *)moves
+{
+    if (!_moves) _moves = [[NSMutableArray alloc] init];
+    return _moves;
 }
 
 - (instancetype)initWithCardCount:(NSUInteger)count
@@ -57,20 +64,28 @@ static const int MISMATCH_PENALTY = -2;
     if (!card.matched) {
         if (!card.chosen) {
             NSArray *previouslyChosenCards = [self getChosenCards];
-            self.cardsChanged = [previouslyChosenCards arrayByAddingObject:card];
-            if (self.matchSize == self.cardsChanged.count) {
-                self.scoreDiff = [card match:previouslyChosenCards];
-                if (self.scoreDiff) {
-                    [self setMatchedCards:self.cardsChanged];
-                } else {
-                    [self unchooseCards:previouslyChosenCards];
-                    self.scoreDiff = MISMATCH_PENALTY;
-                }
-                self.score += self.scoreDiff;
+            self.cardsChanged = @[card];
+            if (self.matchSize == previouslyChosenCards.count + 1) {
+                [self matchCard:card
+                      withCards:previouslyChosenCards];
             }
         }
         card.chosen = !card.chosen;
     }
+}
+
+- (void)matchCard:(Card *)card withCards:(NSArray *)cards
+{
+    self.cardsChanged = [cards arrayByAddingObject:card];
+    self.scoreDiff = [card match:cards];
+    if (self.scoreDiff) {
+        [self setMatchedCards:self.cardsChanged];
+    } else {
+        [self unchooseCards:cards];
+        self.scoreDiff = MISMATCH_PENALTY;
+    }
+    self.score += self.scoreDiff;
+    self.moves = [self.moves arrayByAddingObject:@[[NSNumber numberWithInteger:self.scoreDiff], self.cardsChanged]];
 }
 
 - (NSArray *)getChosenCards
