@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		610DCC6C245EE27B00A0C220 /* CardView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 610DCC6A245EE27B00A0C220 /* CardView.mm */; };
 		613EE0682451ED25008043D0 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EE0672451ED25008043D0 /* SetViewController.m */; };
 		613EE06B2451F2DA008043D0 /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EE06A2451F2DA008043D0 /* MatchViewController.m */; };
 		6154A9192455D6B4008E42EF /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6154A9182455D6B4008E42EF /* HistoryViewController.m */; };
 		61C9BDD9244F19F600A351EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C9BDD8244F19F600A351EF /* AppDelegate.m */; };
 		61C9BDDC244F19F600A351EF /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C9BDDB244F19F600A351EF /* SceneDelegate.m */; };
-		61C9BDDF244F19F600A351EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C9BDDE244F19F600A351EF /* ViewController.m */; };
+		61C9BDDF244F19F600A351EF /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C9BDDE244F19F600A351EF /* GameViewController.m */; };
 		61C9BDE2244F19F600A351EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61C9BDE0244F19F600A351EF /* Main.storyboard */; };
 		61C9BDE4244F19F800A351EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61C9BDE3244F19F800A351EF /* Assets.xcassets */; };
 		61C9BDE7244F19F800A351EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61C9BDE5244F19F800A351EF /* LaunchScreen.storyboard */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		610DCC6A245EE27B00A0C220 /* CardView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CardView.mm; sourceTree = "<group>"; };
+		610DCC6B245EE27B00A0C220 /* CardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
 		613EE0662451ED25008043D0 /* SetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
 		613EE0672451ED25008043D0 /* SetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
 		613EE0692451F2DA008043D0 /* MatchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchViewController.h; sourceTree = "<group>"; };
@@ -38,8 +41,8 @@
 		61C9BDD8244F19F600A351EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		61C9BDDA244F19F600A351EF /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		61C9BDDB244F19F600A351EF /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		61C9BDDD244F19F600A351EF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		61C9BDDE244F19F600A351EF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		61C9BDDD244F19F600A351EF /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		61C9BDDE244F19F600A351EF /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		61C9BDE1244F19F600A351EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61C9BDE3244F19F800A351EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61C9BDE6244F19F800A351EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -91,8 +94,10 @@
 		61C9BDD6244F19F600A351EF /* Matcha */ = {
 			isa = PBXGroup;
 			children = (
-				61C9BDDD244F19F600A351EF /* ViewController.h */,
-				61C9BDDE244F19F600A351EF /* ViewController.m */,
+				610DCC6B245EE27B00A0C220 /* CardView.h */,
+				610DCC6A245EE27B00A0C220 /* CardView.mm */,
+				61C9BDDD244F19F600A351EF /* GameViewController.h */,
+				61C9BDDE244F19F600A351EF /* GameViewController.m */,
 				613EE0692451F2DA008043D0 /* MatchViewController.h */,
 				613EE06A2451F2DA008043D0 /* MatchViewController.m */,
 				613EE0662451ED25008043D0 /* SetViewController.h */,
@@ -215,9 +220,10 @@
 				61C9BDF4244F1D6600A351EF /* Card.m in Sources */,
 				61C9BDFD244F1D9800A351EF /* PlayingCardDeck.m in Sources */,
 				61C9BE03244F234D00A351EF /* CardMatchingGame.m in Sources */,
-				61C9BDDF244F19F600A351EF /* ViewController.m in Sources */,
+				61C9BDDF244F19F600A351EF /* GameViewController.m in Sources */,
 				61FCEC892451C00B00F1D7AA /* SetCard.m in Sources */,
 				6154A9192455D6B4008E42EF /* HistoryViewController.m in Sources */,
+				610DCC6C245EE27B00A0C220 /* CardView.mm in Sources */,
 				613EE0682451ED25008043D0 /* SetViewController.m in Sources */,
 				61C9BDFA244F1D8200A351EF /* PlayingCard.m in Sources */,
 				61C9BDD9244F19F600A351EF /* AppDelegate.m in Sources */,

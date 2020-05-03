@@ -1,23 +1,23 @@
 //
-//  ViewController.m
+//  GameViewController.m
 //  Matcha
 //
 //  Created by Roi Gabay on 21/04/2020.
 //  Copyright © 2020 Roi Gabay. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "GameViewController.h"
 #import "HistoryViewController.h"
 #import "CardMatchingGame.h"
 
-@interface ViewController ()
+@interface GameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (strong, nonatomic) CardMatchingGame *game;
 @end
 
-@implementation ViewController
+@implementation GameViewController
 
 - (CardMatchingGame *)game {
     if (!_game) {

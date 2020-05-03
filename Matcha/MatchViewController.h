@@ -6,11 +6,11 @@
 //  Copyright © 2020 Roi Gabay. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "GameViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MatchViewController : ViewController
+@interface MatchViewController : GameViewController
 
 @end
 

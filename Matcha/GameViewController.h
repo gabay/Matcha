@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GameViewController.h
 //  Matcha
 //
 //  Created by Roi Gabay on 21/04/2020.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "deck.h"
 
-@interface ViewController : UIViewController
+@interface GameViewController : UIViewController
 
 // Subclass should implement the following:
 
