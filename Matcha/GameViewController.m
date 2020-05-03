@@ -13,7 +13,7 @@
 @interface GameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+@property (strong, nonatomic) IBOutletCollection(CardView) NSArray *cardViews;
 @property (strong, nonatomic) CardMatchingGame *game;
 @end
 
@@ -21,8 +21,8 @@
 
 - (CardMatchingGame *)game {
     if (!_game) {
-        NSLog(@"Creating game with %ld cards", [self.cardButtons count]);
-        _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
+        NSLog(@"Creating game with %ld cards", [self.cardViews count]);
+        _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardViews count]
                                                    usingDeck:[self makeDeck]
                                                       matchSize:[self getMatchSize]];
     }
@@ -33,6 +33,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSLog(@"%@ loaded", self.class);
+    for (CardView *cv in self.cardViews) {
+        [cv addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:cv action:@selector(tap:)]];
+    }
     [self updateUI];
 }
 
@@ -64,10 +67,11 @@
     return moves;
 }
 
-- (IBAction)touchCard:(UIButton *)sender
+- (IBAction)touchCard:(CardView *)sender
 {
-    unsigned long buttonIndex = [self.cardButtons indexOfObject:sender];
-    [self.game chooseCardAtIndex:buttonIndex];
+    //sender.faceUp = !sender.faceUp;
+    //unsigned long buttonIndex = [self.cardViews indexOfObject:sender];
+    //[self.game chooseCardAtIndex:buttonIndex];
     [self updateUI];
 }
 
@@ -80,16 +84,20 @@
 
 - (void)updateUI
 {
-    for (UIButton * button in self.cardButtons) {
-        unsigned long buttonIndex = [self.cardButtons indexOfObject:button];
-        Card *card = [self.game cardAtIndex:buttonIndex];
-        [button setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
-        [button setAttributedTitle:[self titleForCard:card] forState:UIControlStateNormal];
-        button.enabled = !card.matched;
+    for (CardView *view in self.cardViews) {
+        unsigned long viewIndex = [self.cardViews indexOfObject:view];
+        Card *card = [self.game cardAtIndex:viewIndex];
+        [self updateView:view withCard:card];
+        // [button setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
+        // [view setAttributedTitle:[self titleForCard:card] forState:UIControlStateNormal];
+        // view.enabled = !card.matched;
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
     [self updateStatus];
 }
+
+- (void)updateView:(CardView *)view withCard:(Card *)card
+{}
 
 - (void)updateStatus
 {

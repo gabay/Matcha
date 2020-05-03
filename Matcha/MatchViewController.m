@@ -7,7 +7,9 @@
 //
 
 #import "MatchViewController.h"
+#import "PlayingCard.h"
 #import "PlayingCardDeck.h"
+#import "PlayingCardView.h"
 
 @interface MatchViewController ()
 
@@ -22,6 +24,14 @@
 - (unsigned int)getMatchSize
 {
     return 2;
+}
+
+- (void)updateView:(CardView *)view withCard:(Card *)card
+{
+    PlayingCard *pc = (PlayingCard *)card;
+    PlayingCardView *pcv = (PlayingCardView *)view;
+    pcv.rank = pc.rank;
+    pcv.suit = pc.suit;
 }
 
 - (NSAttributedString *)titleForCard:(Card *)card

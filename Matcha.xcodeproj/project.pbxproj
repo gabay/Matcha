@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		610DCC6C245EE27B00A0C220 /* CardView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 610DCC6A245EE27B00A0C220 /* CardView.mm */; };
+		610DCC6F245EE8CE00A0C220 /* PlayingCardView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 610DCC6D245EE8CE00A0C220 /* PlayingCardView.mm */; };
 		613EE0682451ED25008043D0 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EE0672451ED25008043D0 /* SetViewController.m */; };
 		613EE06B2451F2DA008043D0 /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EE06A2451F2DA008043D0 /* MatchViewController.m */; };
 		6154A9192455D6B4008E42EF /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6154A9182455D6B4008E42EF /* HistoryViewController.m */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		610DCC6A245EE27B00A0C220 /* CardView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CardView.mm; sourceTree = "<group>"; };
 		610DCC6B245EE27B00A0C220 /* CardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
+		610DCC6D245EE8CE00A0C220 /* PlayingCardView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PlayingCardView.mm; sourceTree = "<group>"; };
+		610DCC6E245EE8CE00A0C220 /* PlayingCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayingCardView.h; sourceTree = "<group>"; };
 		613EE0662451ED25008043D0 /* SetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
 		613EE0672451ED25008043D0 /* SetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
 		613EE0692451F2DA008043D0 /* MatchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchViewController.h; sourceTree = "<group>"; };
@@ -96,6 +99,8 @@
 			children = (
 				610DCC6B245EE27B00A0C220 /* CardView.h */,
 				610DCC6A245EE27B00A0C220 /* CardView.mm */,
+				610DCC6E245EE8CE00A0C220 /* PlayingCardView.h */,
+				610DCC6D245EE8CE00A0C220 /* PlayingCardView.mm */,
 				61C9BDDD244F19F600A351EF /* GameViewController.h */,
 				61C9BDDE244F19F600A351EF /* GameViewController.m */,
 				613EE0692451F2DA008043D0 /* MatchViewController.h */,
@@ -226,6 +231,7 @@
 				610DCC6C245EE27B00A0C220 /* CardView.mm in Sources */,
 				613EE0682451ED25008043D0 /* SetViewController.m in Sources */,
 				61C9BDFA244F1D8200A351EF /* PlayingCard.m in Sources */,
+				610DCC6F245EE8CE00A0C220 /* PlayingCardView.mm in Sources */,
 				61C9BDD9244F19F600A351EF /* AppDelegate.m in Sources */,
 				613EE06B2451F2DA008043D0 /* MatchViewController.m in Sources */,
 				61C9BDEA244F19F800A351EF /* main.m in Sources */,

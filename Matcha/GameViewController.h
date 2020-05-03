@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "deck.h"
+#import "CardView.h"
 
 @interface GameViewController : UIViewController
 
@@ -16,6 +17,8 @@
 - (Deck *)makeDeck;
 
 - (unsigned int)getMatchSize;
+
+- (void)updateView:(CardView *)view withCard:(Card *)card;
 
 - (NSAttributedString *)titleForCard:(Card *)card;
 
