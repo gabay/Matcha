@@ -41,7 +41,7 @@ static const double FONT_SIZE = 20;
         NSAttributedString *description = item.lastObject;
         totalScore += score.longLongValue;
         [text appendAttributedString:[[NSAttributedString alloc] initWithString:score.stringValue]];
-        [text appendAttributedString:[[NSAttributedString alloc] initWithString:@"\t\t"]];
+        [text appendAttributedString:[[NSAttributedString alloc] initWithString:@"\t\t|\t"]];
         [text appendAttributedString:description];
         [text appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
     }
