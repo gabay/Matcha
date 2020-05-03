@@ -353,40 +353,110 @@
                                     <segue destination="pXw-Q3-mW1" kind="show" identifier="showHistory" id="wOk-tP-CXu"/>
                                 </connections>
                             </button>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v7w-fd-pt1" customClass="PlayingCardView">
-                                <rect key="frame" x="20" y="95" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7w-fd-pt1" customClass="PlayingCardView">
+                                <rect key="frame" x="35" y="102" width="80" height="140"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <gestureRecognizers/>
                             </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o1y-lv-Bqv" customClass="PlayingCardView">
-                                <rect key="frame" x="109" y="95" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1y-lv-Bqv" customClass="PlayingCardView">
+                                <rect key="frame" x="124" y="102" width="80" height="140"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EJU-E1-VbT" customClass="PlayingCardView">
-                                <rect key="frame" x="197" y="95" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJU-E1-VbT" customClass="PlayingCardView">
+                                <rect key="frame" x="212" y="102" width="80" height="140"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VBj-PV-tyd" customClass="PlayingCardView">
-                                <rect key="frame" x="285" y="95" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBj-PV-tyd" customClass="PlayingCardView">
+                                <rect key="frame" x="300" y="102" width="80" height="140"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DlK-2y-v66" customClass="PlayingCardView">
-                                <rect key="frame" x="64" y="262" width="56" height="81"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6y-Z6-0CS" customClass="PlayingCardView">
+                                <rect key="frame" x="35" y="250" width="80" height="140"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S7m-Jd-6eV" customClass="PlayingCardView">
+                                <rect key="frame" x="124" y="250" width="80" height="140"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l3q-3v-Xk8" customClass="PlayingCardView">
-                                <rect key="frame" x="197" y="262" width="161" height="286"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2g7-Q2-EJK" customClass="PlayingCardView">
+                                <rect key="frame" x="212" y="250" width="80" height="140"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="viC-Ot-FX9" customClass="PlayingCardView">
+                                <rect key="frame" x="300" y="250" width="80" height="140"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZaS-bm-D16" customClass="PlayingCardView">
+                                <rect key="frame" x="35" y="398" width="80" height="140"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6Z-sL-rdw" customClass="PlayingCardView">
+                                <rect key="frame" x="124" y="398" width="80" height="140"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6x-pW-J7P" customClass="PlayingCardView">
+                                <rect key="frame" x="212" y="398" width="80" height="140"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y03-IQ-ZXG" customClass="PlayingCardView">
+                                <rect key="frame" x="300" y="398" width="80" height="140"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2g7-Q2-EJK" firstAttribute="top" secondItem="viC-Ot-FX9" secondAttribute="top" id="3HS-Uc-0fl"/>
+                            <constraint firstItem="S7m-Jd-6eV" firstAttribute="top" secondItem="2g7-Q2-EJK" secondAttribute="top" id="43S-pP-Q6P"/>
+                            <constraint firstItem="VBj-PV-tyd" firstAttribute="leading" secondItem="viC-Ot-FX9" secondAttribute="leading" id="4C4-dS-Sax"/>
+                            <constraint firstAttribute="bottom" secondItem="ZaS-bm-D16" secondAttribute="bottom" constant="358" id="52P-Rf-eoZ"/>
+                            <constraint firstItem="VBj-PV-tyd" firstAttribute="trailing" secondItem="viC-Ot-FX9" secondAttribute="trailing" id="53a-1C-mRC"/>
+                            <constraint firstItem="q6x-pW-J7P" firstAttribute="bottom" secondItem="Y03-IQ-ZXG" secondAttribute="bottom" id="5Rv-bR-PnY"/>
+                            <constraint firstItem="EJU-E1-VbT" firstAttribute="leading" secondItem="2g7-Q2-EJK" secondAttribute="leading" id="5Zb-MB-01S"/>
+                            <constraint firstItem="EJU-E1-VbT" firstAttribute="trailing" secondItem="2g7-Q2-EJK" secondAttribute="trailing" id="7PP-ss-yCv"/>
+                            <constraint firstItem="v7w-fd-pt1" firstAttribute="trailing" secondItem="U6y-Z6-0CS" secondAttribute="trailing" id="9Ih-iz-hP1"/>
+                            <constraint firstItem="ZaS-bm-D16" firstAttribute="top" secondItem="R6Z-sL-rdw" secondAttribute="top" id="AFP-iD-dUT"/>
+                            <constraint firstItem="v7w-fd-pt1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="AbA-ap-9w9"/>
+                            <constraint firstItem="o1y-lv-Bqv" firstAttribute="top" secondItem="EJU-E1-VbT" secondAttribute="top" id="Adr-2o-4cH"/>
+                            <constraint firstItem="viC-Ot-FX9" firstAttribute="leading" secondItem="Y03-IQ-ZXG" secondAttribute="leading" id="BDO-ml-uTJ"/>
+                            <constraint firstItem="S7m-Jd-6eV" firstAttribute="bottom" secondItem="2g7-Q2-EJK" secondAttribute="bottom" id="DHC-sh-eIv"/>
+                            <constraint firstItem="EJU-E1-VbT" firstAttribute="bottom" secondItem="VBj-PV-tyd" secondAttribute="bottom" id="EK1-pg-o9q"/>
+                            <constraint firstItem="ZaS-bm-D16" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="398" id="HDm-eR-z4C"/>
+                            <constraint firstItem="o1y-lv-Bqv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="124" id="JLI-a0-ZaG"/>
+                            <constraint firstItem="S7m-Jd-6eV" firstAttribute="trailing" secondItem="R6Z-sL-rdw" secondAttribute="trailing" id="JRA-sM-gSb"/>
+                            <constraint firstItem="U6y-Z6-0CS" firstAttribute="bottom" secondItem="S7m-Jd-6eV" secondAttribute="bottom" id="KDv-si-BPW"/>
+                            <constraint firstItem="o1y-lv-Bqv" firstAttribute="trailing" secondItem="S7m-Jd-6eV" secondAttribute="trailing" id="L4R-rU-iYJ"/>
+                            <constraint firstItem="o1y-lv-Bqv" firstAttribute="leading" secondItem="v7w-fd-pt1" secondAttribute="trailing" constant="9" id="Lry-nn-u16"/>
+                            <constraint firstItem="q6x-pW-J7P" firstAttribute="top" secondItem="Y03-IQ-ZXG" secondAttribute="top" id="OiP-xc-LkK"/>
+                            <constraint firstItem="v7w-fd-pt1" firstAttribute="top" secondItem="o1y-lv-Bqv" secondAttribute="top" id="Pu4-2s-wJx"/>
+                            <constraint firstItem="S7m-Jd-6eV" firstAttribute="leading" secondItem="R6Z-sL-rdw" secondAttribute="leading" id="QHW-4O-bcg"/>
+                            <constraint firstItem="2g7-Q2-EJK" firstAttribute="bottom" secondItem="viC-Ot-FX9" secondAttribute="bottom" id="Ted-wt-rvU"/>
+                            <constraint firstItem="EJU-E1-VbT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="212" id="TxZ-zZ-31J"/>
+                            <constraint firstItem="R6Z-sL-rdw" firstAttribute="bottom" secondItem="q6x-pW-J7P" secondAttribute="bottom" id="X0r-RQ-p5J"/>
+                            <constraint firstItem="U6y-Z6-0CS" firstAttribute="top" secondItem="v7w-fd-pt1" secondAttribute="bottom" constant="8" id="XdA-SR-Zf1"/>
+                            <constraint firstItem="ZaS-bm-D16" firstAttribute="bottom" secondItem="R6Z-sL-rdw" secondAttribute="bottom" id="Ydq-Lz-qY3"/>
+                            <constraint firstItem="viC-Ot-FX9" firstAttribute="trailing" secondItem="Y03-IQ-ZXG" secondAttribute="trailing" id="a9q-KE-1LU"/>
+                            <constraint firstItem="EJU-E1-VbT" firstAttribute="leading" secondItem="o1y-lv-Bqv" secondAttribute="trailing" constant="8" id="aZE-iF-boz"/>
+                            <constraint firstItem="EJU-E1-VbT" firstAttribute="top" secondItem="VBj-PV-tyd" secondAttribute="top" id="cwK-mi-skB"/>
+                            <constraint firstItem="2g7-Q2-EJK" firstAttribute="leading" secondItem="q6x-pW-J7P" secondAttribute="leading" id="d8R-hb-L7v"/>
+                            <constraint firstItem="VBj-PV-tyd" firstAttribute="leading" secondItem="EJU-E1-VbT" secondAttribute="trailing" constant="8" id="db9-Md-1Q5"/>
+                            <constraint firstItem="U6y-Z6-0CS" firstAttribute="trailing" secondItem="ZaS-bm-D16" secondAttribute="trailing" id="g5q-C0-kGW"/>
+                            <constraint firstItem="U6y-Z6-0CS" firstAttribute="leading" secondItem="ZaS-bm-D16" secondAttribute="leading" id="jfS-l1-JWI"/>
+                            <constraint firstItem="R6Z-sL-rdw" firstAttribute="top" secondItem="q6x-pW-J7P" secondAttribute="top" id="ksq-4X-sMf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VBj-PV-tyd" secondAttribute="trailing" constant="34" id="mE8-gf-MrW"/>
+                            <constraint firstItem="v7w-fd-pt1" firstAttribute="leading" secondItem="U6y-Z6-0CS" secondAttribute="leading" id="mLR-eE-fgY"/>
+                            <constraint firstItem="U6y-Z6-0CS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="250" id="mUg-i8-Ty7"/>
+                            <constraint firstItem="v7w-fd-pt1" firstAttribute="bottom" secondItem="o1y-lv-Bqv" secondAttribute="bottom" id="oq0-cS-JFO"/>
+                            <constraint firstItem="ZaS-bm-D16" firstAttribute="top" secondItem="U6y-Z6-0CS" secondAttribute="bottom" constant="8" id="pkn-rW-KMt"/>
+                            <constraint firstItem="VBj-PV-tyd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="300" id="psH-xX-yFj"/>
+                            <constraint firstItem="U6y-Z6-0CS" firstAttribute="top" secondItem="S7m-Jd-6eV" secondAttribute="top" id="qPQ-ig-1RW"/>
+                            <constraint firstItem="v7w-fd-pt1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="rLi-7Y-lt0"/>
+                            <constraint firstItem="o1y-lv-Bqv" firstAttribute="leading" secondItem="S7m-Jd-6eV" secondAttribute="leading" id="tz2-Sc-j2s"/>
+                            <constraint firstItem="2g7-Q2-EJK" firstAttribute="trailing" secondItem="q6x-pW-J7P" secondAttribute="trailing" id="ye4-3t-Zaz"/>
+                            <constraint firstItem="o1y-lv-Bqv" firstAttribute="bottom" secondItem="EJU-E1-VbT" secondAttribute="bottom" id="zRF-vV-lf9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Match" image="rectangle.on.rectangle.angled" catalog="system" id="IGt-wZ-5jT"/>
@@ -403,8 +473,18 @@
                         <outletCollection property="cardViews" destination="o1y-lv-Bqv" id="vgc-M4-cRt"/>
                         <outletCollection property="cardViews" destination="EJU-E1-VbT" id="b8I-8n-gWY"/>
                         <outletCollection property="cardViews" destination="VBj-PV-tyd" id="Jis-Sa-o8t"/>
-                        <outletCollection property="cardViews" destination="DlK-2y-v66" id="lPc-ae-bBb"/>
-                        <outletCollection property="cardViews" destination="l3q-3v-Xk8" id="o6k-vk-NQB"/>
+                        <outletCollection property="cardViews" destination="v7w-fd-pt1" id="ojX-aP-KQ8"/>
+                        <outletCollection property="cardViews" destination="o1y-lv-Bqv" id="SJH-UT-iYV"/>
+                        <outletCollection property="cardViews" destination="EJU-E1-VbT" id="9Ho-V0-t5g"/>
+                        <outletCollection property="cardViews" destination="VBj-PV-tyd" id="Io2-7e-14j"/>
+                        <outletCollection property="cardViews" destination="U6y-Z6-0CS" id="38W-2r-bLb"/>
+                        <outletCollection property="cardViews" destination="S7m-Jd-6eV" id="Xqo-sr-Tuc"/>
+                        <outletCollection property="cardViews" destination="2g7-Q2-EJK" id="l02-Pu-IDr"/>
+                        <outletCollection property="cardViews" destination="viC-Ot-FX9" id="sJH-Lh-FEQ"/>
+                        <outletCollection property="cardViews" destination="ZaS-bm-D16" id="pd2-dW-Wi4"/>
+                        <outletCollection property="cardViews" destination="R6Z-sL-rdw" id="XB6-QE-0Vb"/>
+                        <outletCollection property="cardViews" destination="q6x-pW-J7P" id="P9o-Gk-0cb"/>
+                        <outletCollection property="cardViews" destination="Y03-IQ-ZXG" id="RQt-Pl-c6E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

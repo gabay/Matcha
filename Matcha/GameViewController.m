@@ -79,6 +79,7 @@
 {
     // Redraw cards and reset score
     self.game = nil;
+    for (CardView *cv in self.cardViews) cv.faceUp = NO;
     [self updateUI];
 }
 
