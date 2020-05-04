@@ -35,10 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Drawing
 
-#define SYMBOL_LINE_WIDTH 0.05
+#define SYMBOL_LINE_WIDTH 0.02
 #define SHAPE_WIDTH 0.2
 #define SHAPE_HEIGHT 0.25
-#define STRIPE_DISTANCE 0.1
 
 - (void)drawCardContent
 {
@@ -93,6 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
     }
     [self setColorForDrawing];
     [self fillPath:path];
+    path.lineWidth = self.bounds.size.height * SYMBOL_LINE_WIDTH;
     [path stroke];
 }
 
@@ -116,10 +116,11 @@ NS_ASSUME_NONNULL_BEGIN
 {
     CGContextSaveGState(UIGraphicsGetCurrentContext());
     [path addClip];
-    for (int y = path.bounds.origin.y; y < path.bounds.origin.y + path.bounds.size.height; y += path.bounds.size.height * STRIPE_DISTANCE) {
+    for (int y = path.bounds.origin.y; y < path.bounds.origin.y + path.bounds.size.height; y += self.bounds.size.height * SYMBOL_LINE_WIDTH * 2.5) {
         UIBezierPath *line = [UIBezierPath bezierPath];
         [line moveToPoint:CGPointMake(path.bounds.origin.x, y)];
         [line addLineToPoint:CGPointMake(path.bounds.origin.x + path.bounds.size.width, y)];
+        line.lineWidth = self.bounds.size.height * SYMBOL_LINE_WIDTH;
         [line stroke];
     }
     CGContextRestoreGState(UIGraphicsGetCurrentContext());
@@ -135,7 +136,6 @@ NS_ASSUME_NONNULL_BEGIN
     [path addLineToPoint:CGPointMake(point.x + dx, point.y)];
     [path addLineToPoint:CGPointMake(point.x, point.y + dy)];
     [path closePath];
-    path.lineWidth = self.bounds.size.width * SYMBOL_LINE_WIDTH;
     return path;
 }
 
@@ -148,7 +148,6 @@ NS_ASSUME_NONNULL_BEGIN
     rect.size.width = dx * 2;
     rect.size.height = dy * 2;
     UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:rect];
-    path.lineWidth = self.bounds.size.width * SYMBOL_LINE_WIDTH;
     return path;
 }
 
