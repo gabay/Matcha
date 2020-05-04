@@ -16,6 +16,11 @@
 
 @implementation SetViewController
 
+- (void)viewDidLoad {
+    self.unchosenCardsAreFaceDown = NO;
+    [super viewDidLoad];
+}
+
 - (Deck *)makeDeck
 {
     return [[SetDeck alloc] init];

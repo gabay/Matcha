@@ -10,6 +10,8 @@ NS_ASSUME_NONNULL_BEGIN
 static const float DEFAULT_FACE_SCALE_FACTOR = 0.9;
 static const float PIP_FONT_SCALE_FACTOR = 0.15;
 
+#pragma mark - Members
+
 - (void)setRank:(NSUInteger)rank
 {
     _rank = rank;
@@ -34,6 +36,8 @@ static const float PIP_FONT_SCALE_FACTOR = 0.15;
 
     [self drawCardCorners];
 }
+
+#pragma mark - Drawing
 
 - (void) drawCardCenter
 {

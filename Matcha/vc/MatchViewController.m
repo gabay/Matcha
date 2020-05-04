@@ -17,6 +17,13 @@
 
 @implementation MatchViewController
 
+#pragma mark - Initialization
+
+- (void)viewDidLoad {
+    self.unchosenCardsAreFaceDown = YES;
+    [super viewDidLoad];
+}
+
 - (Deck *)makeDeck
 {
     return [[PlayingCardDeck alloc] init];

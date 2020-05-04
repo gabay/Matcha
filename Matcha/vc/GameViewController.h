@@ -12,6 +12,8 @@
 
 @interface GameViewController : UIViewController
 
+@property (nonatomic) BOOL unchosenCardsAreFaceDown;
+
 // Subclass should implement the following:
 
 - (Deck *)makeDeck;

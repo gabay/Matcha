@@ -78,10 +78,6 @@
 - (IBAction)touchCard:(UITapGestureRecognizer *)sender
 {
     UIView *view = sender.view;
-    if ([view isKindOfClass:[CardView class]]) {
-        CardView *cv = (CardView *)view;
-        cv.faceUp = !cv.faceUp;
-    }
     
     unsigned long index = [self.cardViews indexOfObject:view];
     [self.game chooseCardAtIndex:index];
@@ -93,7 +89,6 @@
 {
     // Redraw cards and reset score
     self.game = nil;
-    for (CardView *cv in self.cardViews) cv.faceUp = NO;
     [self updateUI];
 }
 
@@ -102,7 +97,7 @@
     for (CardView *cv in self.cardViews) {
         unsigned long viewIndex = [self.cardViews indexOfObject:cv];
         Card *card = [self.game cardAtIndex:viewIndex];
-        cv.faceUp = card.chosen;
+        cv.faceUp = (self.unchosenCardsAreFaceDown) ? card.chosen : YES;
         cv.active = !card.matched;
         [self updateView:cv withCard:card];
     }
@@ -126,6 +121,7 @@
     }
     self.statusLabel.attributedText = status;
 }
+
 - (NSAttributedString *)formatCards:(NSArray *)cards
 {
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc] init];
