@@ -22,11 +22,5 @@
 
 - (void)updateView:(CardView *)view withCard:(Card *)card;
 
-- (NSAttributedString *)titleForCard:(Card *)card;
-
-- (NSAttributedString *)titleForStatus:(Card *)card;
-
-- (UIImage *)backgroundImageForCard:(Card *)card;
-
 @end
 

@@ -10,10 +10,10 @@
 
 @implementation SetCard
 
-+ (unsigned int)maxNumber
-{
-    return 3;
-}
++ (unsigned int)maxNumber { return 3; }
++ (unsigned int)maxShape { return 3; }
++ (unsigned int)maxFill { return 3; }
++ (unsigned int)maxColor { return 3; }
 
 + (NSArray *)numbers
 {
@@ -63,20 +63,23 @@
 
 - (BOOL)matchShapeWith:(SetCard*)a and:(SetCard *)b
 {
-    NSSet *shapes = [[NSSet alloc] initWithArray:@[self.shape, a.shape, b.shape]];
-    return shapes.count == 1 || shapes.count == 3;
+    return ((self.shape == a.shape && self.shape == b.shape) ||
+            (self.shape != a.shape && self.shape != b.shape && a.shape != b.shape)
+            );
 }
 
 - (BOOL)matchFillWith:(SetCard*)a and:(SetCard *)b
 {
-    NSSet *fills = [[NSSet alloc] initWithArray:@[self.fill, a.fill, b.fill]];
-    return fills.count == 1 || fills.count == 3;
+    return ((self.fill == a.fill && self.fill == b.fill) ||
+            (self.fill != a.fill && self.fill != b.fill && a.fill != b.fill)
+            );
 }
 
 - (BOOL)matchColorWith:(SetCard*)a and:(SetCard *)b
 {
-    NSSet *colors = [[NSSet alloc] initWithArray:@[self.color, a.color, b.color]];
-    return colors.count == 1 || colors.count == 3;
+    return ((self.color == a.color && self.color == b.color) ||
+            (self.color != a.color && self.color != b.color && a.color != b.color)
+            );
 }
 
 

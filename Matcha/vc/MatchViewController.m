@@ -41,28 +41,6 @@
     pcv.suit = pc.suit;
 }
 
-- (NSAttributedString *)titleForCard:(Card *)card
-{
-    if (card.chosen)
-        return [self titleForStatus:card];
-    else
-        return [[NSAttributedString alloc] init];
-}
-
-- (NSAttributedString *)titleForStatus:(Card *)card
-{
-    return [[NSAttributedString alloc]
-            initWithString:card.contents
-            attributes:@{
-                NSForegroundColorAttributeName: [UIColor blackColor]}];
-}
-
-- (UIImage *)backgroundImageForCard:(Card *)card
-{
-    return [UIImage imageNamed:card.chosen ? @"cardfront" : @"cardback"];
-}
-
-
 /*
 #pragma mark - Navigation
 

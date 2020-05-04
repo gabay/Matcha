@@ -8,9 +8,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SetCardView : CardView
 
 @property (nonatomic) NSUInteger number;
-@property (strong, nonatomic) NSString* shape;
-@property (strong, nonatomic) NSString* fill;
-@property (strong, nonatomic) NSString* color;
+@property (nonatomic) NSUInteger shape;
+@property (nonatomic) NSUInteger fill;
+@property (nonatomic) NSUInteger color;
 
 @end
 

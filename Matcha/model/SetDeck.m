@@ -14,9 +14,9 @@
 {
     if (self = [super init]) {
         for (unsigned long number = 1; number <= [SetCard maxNumber]; number++) {
-            for (NSString * shape in [SetCard shapes]) {
-                for (NSString *fill in [SetCard fills]) {
-                    for (NSString *color in [SetCard colors]) {
+            for (unsigned long shape = 1; shape <= [SetCard maxShape]; shape++) {
+                for (unsigned long fill = 1; fill <= [SetCard maxFill]; fill++) {
+                    for (unsigned long color = 1; color <= [SetCard maxColor]; color++) {
                         SetCard * card = [[SetCard alloc] init];
                         card.number = number;
                         card.shape = shape;

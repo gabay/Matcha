@@ -33,9 +33,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6F-6k-Z4d">
-                                <rect key="frame" x="334" y="754" width="60" height="60"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="czU-Dy-mSK" customClass="SetCardView">
+                                <rect key="frame" x="20" y="100" width="80" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RnI-I3-zlK" customClass="SetCardView">
+                                <rect key="frame" x="108" y="100" width="80" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8T-TG-4Y2" customClass="SetCardView">
+                                <rect key="frame" x="196" y="100" width="80" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="enf-GV-aG6" customClass="SetCardView">
+                                <rect key="frame" x="284" y="100" width="80" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TCd-PU-xMH" customClass="SetCardView">
+                                <rect key="frame" x="20" y="248" width="80" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n1L-uy-upR" customClass="SetCardView">
+                                <rect key="frame" x="108" y="248" width="80" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OeT-NJ-PJK" customClass="SetCardView">
+                                <rect key="frame" x="196" y="248" width="80" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cyj-lB-Azu" customClass="SetCardView">
+                                <rect key="frame" x="284" y="248" width="80" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6F-6k-Z4d">
+                                <rect key="frame" x="354" y="754" width="60" height="57.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Wtq-WR-iM8"/>
+                                    <constraint firstAttribute="height" constant="60" id="eye-cV-gkH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="tintColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" backgroundImage="repeat" catalog="system">
@@ -45,50 +88,61 @@
                                     <action selector="touchRedeal:" destination="8QJ-w3-Fbn" eventType="touchUpInside" id="mSv-er-JZl"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdO-zP-yhL">
-                                <rect key="frame" x="20" y="685" width="361" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1PG-Ps-5gW">
-                                <rect key="frame" x="266" y="752.5" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" backgroundImage="clock" catalog="system"/>
-                                <connections>
-                                    <segue destination="pXw-Q3-mW1" kind="show" identifier="showHistory" id="pn5-5S-nsR"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jB7-Si-NsW">
-                                <rect key="frame" x="20" y="752" width="169" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jB7-Si-NsW">
+                                <rect key="frame" x="299" y="693" width="115" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="m3a-YR-DuU"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="czU-Dy-mSK" customClass="SetCardView">
-                                <rect key="frame" x="20" y="100" width="80" height="140"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T7r-gI-jVk" customClass="SetCardView">
+                                <rect key="frame" x="20" y="396" width="80" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="csU-Hw-m5Y" customClass="SetCardView">
+                                <rect key="frame" x="108" y="396" width="80" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QuK-y8-fXb" customClass="SetCardView">
+                                <rect key="frame" x="196" y="396" width="80" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xw-lt-Lyw" customClass="SetCardView">
+                                <rect key="frame" x="284" y="396" width="80" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="A6F-6k-Z4d" firstAttribute="top" secondItem="jB7-Si-NsW" secondAttribute="bottom" id="85R-GA-FRx"/>
+                            <constraint firstItem="jB7-Si-NsW" firstAttribute="trailing" secondItem="Fjh-jp-UZ2" secondAttribute="trailing" id="Wht-gQ-07J"/>
+                            <constraint firstItem="Fjh-jp-UZ2" firstAttribute="trailing" secondItem="A6F-6k-Z4d" secondAttribute="trailing" id="iN6-nL-Pi6"/>
+                            <constraint firstItem="Fjh-jp-UZ2" firstAttribute="bottom" secondItem="A6F-6k-Z4d" secondAttribute="bottom" id="nMC-JH-gvY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Fjh-jp-UZ2"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Set" image="triangle" catalog="system" id="g6Q-l1-RHW"/>
-                    <navigationItem key="navigationItem" id="mGv-hx-F5N">
-                        <barButtonItem key="rightBarButtonItem" title="History" id="tiz-jt-vm6">
-                            <connections>
-                                <segue destination="pXw-Q3-mW1" kind="show" identifier="showHistory" id="gID-go-n1v"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="mGv-hx-F5N"/>
                     <connections>
                         <outlet property="scoreLabel" destination="jB7-Si-NsW" id="Y3c-Vh-eqB"/>
-                        <outlet property="statusLabel" destination="rdO-zP-yhL" id="8qp-4f-NRt"/>
                         <outletCollection property="cardViews" destination="czU-Dy-mSK" id="XWx-eb-lGr"/>
+                        <outletCollection property="cardViews" destination="RnI-I3-zlK" id="bps-kQ-OO2"/>
+                        <outletCollection property="cardViews" destination="H8T-TG-4Y2" id="spn-pf-6FI"/>
+                        <outletCollection property="cardViews" destination="enf-GV-aG6" id="PWs-pR-HH0"/>
+                        <outletCollection property="cardViews" destination="TCd-PU-xMH" id="7yz-lc-5oG"/>
+                        <outletCollection property="cardViews" destination="n1L-uy-upR" id="q7h-KH-9ZX"/>
+                        <outletCollection property="cardViews" destination="OeT-NJ-PJK" id="AZv-Eu-Q8I"/>
+                        <outletCollection property="cardViews" destination="Cyj-lB-Azu" id="nUb-M3-ZJu"/>
+                        <outletCollection property="cardViews" destination="T7r-gI-jVk" id="miZ-8R-uoA"/>
+                        <outletCollection property="cardViews" destination="csU-Hw-m5Y" id="teo-HB-Hlc"/>
+                        <outletCollection property="cardViews" destination="QuK-y8-fXb" id="zW6-Hb-rAp"/>
+                        <outletCollection property="cardViews" destination="6xw-lt-Lyw" id="V01-NG-5vi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBX-qP-XQL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -152,18 +206,6 @@
                                 </state>
                                 <connections>
                                     <action selector="touchRedeal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Hk-CT-PrE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29d-v5-jjk">
-                                <rect key="frame" x="294" y="753.5" width="60" height="59"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="NJB-bg-fDy"/>
-                                    <constraint firstAttribute="width" constant="60" id="PbT-qG-C3I"/>
-                                </constraints>
-                                <color key="tintColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" backgroundImage="clock" catalog="system"/>
-                                <connections>
-                                    <segue destination="pXw-Q3-mW1" kind="show" identifier="showHistory" id="wOk-tP-CXu"/>
                                 </connections>
                             </button>
                             <view opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v7w-fd-pt1" customClass="PlayingCardView">
@@ -244,20 +286,14 @@
                         <constraints>
                             <constraint firstItem="Zhg-tk-JTE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4Vm-IE-7Gh"/>
                             <constraint firstItem="M8U-u7-yp3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BJe-Qk-kyX"/>
-                            <constraint firstItem="M8U-u7-yp3" firstAttribute="leading" secondItem="29d-v5-jjk" secondAttribute="trailing" id="EKw-XX-fcF"/>
                             <constraint firstItem="M8U-u7-yp3" firstAttribute="top" secondItem="Zhg-tk-JTE" secondAttribute="bottom" id="Hhi-H0-Uih"/>
                             <constraint firstItem="M8U-u7-yp3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="bGA-jj-GSE"/>
-                            <constraint firstItem="29d-v5-jjk" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jLX-H3-AFv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Match" image="rectangle.on.rectangle.angled" catalog="system" id="IGt-wZ-5jT"/>
                     <navigationItem key="navigationItem" id="DjR-9V-Acx">
-                        <barButtonItem key="rightBarButtonItem" title="History" id="ilx-lO-INQ">
-                            <connections>
-                                <segue destination="pXw-Q3-mW1" kind="show" identifier="showHistory" id="sZg-ow-7LQ"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="History" id="ilx-lO-INQ"/>
                     </navigationItem>
                     <connections>
                         <outlet property="scoreLabel" destination="Zhg-tk-JTE" id="FSG-jx-xja"/>
@@ -329,11 +365,7 @@
             <point key="canvasLocation" x="569.56521739130437" y="-63.616071428571423"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="pn5-5S-nsR"/>
-    </inferredMetricsTieBreakers>
     <resources>
-        <image name="clock" catalog="system" width="128" height="121"/>
         <image name="rectangle.on.rectangle" catalog="system" width="128" height="98"/>
         <image name="rectangle.on.rectangle.angled" catalog="system" width="128" height="101"/>
         <image name="repeat" catalog="system" width="128" height="99"/>
