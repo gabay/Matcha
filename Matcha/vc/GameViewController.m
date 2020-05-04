@@ -18,6 +18,8 @@
 
 @implementation GameViewController
 
+#define FLIP_DURATION 0.3
+
 #pragma mark - Members
 
 - (CardMatchingGame *)game {
@@ -68,11 +70,21 @@
     for (CardView *cv in self.cardViews) {
         unsigned long viewIndex = [self.cardViews indexOfObject:cv];
         Card *card = [self.game cardAtIndex:viewIndex];
-        cv.faceUp = (self.unchosenCardsAreFaceDown) ? card.chosen : YES;
+        BOOL shouldFaceUp = (self.unchosenCardsAreFaceDown) ? card.chosen : YES;
+        if (cv.faceUp != shouldFaceUp) {
+            [self animateFlipCardView:cv toFaceUp:shouldFaceUp];
+        }
         cv.active = !card.matched;
-        [self updateView:cv withCard:card];
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
+}
+
+- (void)animateFlipCardView:(CardView *)cardView toFaceUp:(BOOL)faceUp {
+    [UIView transitionWithView:cardView
+                      duration:FLIP_DURATION
+                       options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{cardView.faceUp = faceUp;}
+                    completion:^(BOOL fin){}];
 }
 
 - (void)updateView:(CardView *)view withCard:(Card *)card
