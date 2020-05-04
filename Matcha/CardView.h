@@ -9,8 +9,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CardView : UIView
 
 @property (nonatomic) BOOL faceUp;
-
-- (void)tap:(UITapGestureRecognizer *)tap;
+@property (nonatomic) BOOL active;
 
 - (CGFloat)scaleFactor;
 - (CGFloat)cornerRadius;

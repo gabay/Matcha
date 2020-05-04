@@ -7,7 +7,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation CardView
 
-static const double STANDARD_HEIGHT = 140.0;
+static const double STANDARD_HEIGHT = 180.0;
 static const double STANDARD_CORNER_RADIUS = 12;
 
 - (CGFloat)scaleFactor { return self.bounds.size.height / STANDARD_HEIGHT; }
@@ -21,11 +21,10 @@ static const double STANDARD_CORNER_RADIUS = 12;
     [self setNeedsDisplay];
 }
 
-#pragma mark - Gestures
-
-- (void)tap:(UITapGestureRecognizer *)tap
+- (void)setActive:(BOOL)active
 {
-    self.faceUp = !self.faceUp;
+    _active = active;
+    [self setNeedsDisplay];
 }
 
 #pragma mark - Drawing
@@ -36,7 +35,11 @@ static const double STANDARD_CORNER_RADIUS = 12;
     UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:[self cornerRadius]];
     [roundedRect addClip];
     
-    [[UIColor whiteColor] setFill];
+    if (self.active) {
+        [[UIColor whiteColor] setFill];
+    } else {
+        [[[UIColor grayColor] colorWithAlphaComponent:0.3] setFill];
+    }
     UIRectFill(self.bounds);
     
     // draw card content

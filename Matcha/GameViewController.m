@@ -19,6 +19,8 @@
 
 @implementation GameViewController
 
+#pragma mark - Members
+
 - (CardMatchingGame *)game {
     if (!_game) {
         NSLog(@"Creating game with %ld cards", [self.cardViews count]);
@@ -29,13 +31,17 @@
     return _game;
 }
 
+#pragma mark - Initialization
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    NSLog(@"%@ loaded", self.class);
+    
+    // set tap gesture for all cards
     for (CardView *cv in self.cardViews) {
-        [cv addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:cv action:@selector(tap:)]];
+        [cv addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchCard:)]];
     }
+    
+    NSLog(@"%@ loaded", self.class);
     [self updateUI];
 }
 
@@ -67,11 +73,19 @@
     return moves;
 }
 
-- (IBAction)touchCard:(CardView *)sender
+#pragma mark - Gestures
+
+- (IBAction)touchCard:(UITapGestureRecognizer *)sender
 {
-    //sender.faceUp = !sender.faceUp;
-    //unsigned long buttonIndex = [self.cardViews indexOfObject:sender];
-    //[self.game chooseCardAtIndex:buttonIndex];
+    UIView *view = sender.view;
+    if ([view isKindOfClass:[CardView class]]) {
+        CardView *cv = (CardView *)view;
+        cv.faceUp = !cv.faceUp;
+    }
+    
+    unsigned long index = [self.cardViews indexOfObject:view];
+    [self.game chooseCardAtIndex:index];
+    
     [self updateUI];
 }
 
@@ -85,13 +99,12 @@
 
 - (void)updateUI
 {
-    for (CardView *view in self.cardViews) {
-        unsigned long viewIndex = [self.cardViews indexOfObject:view];
+    for (CardView *cv in self.cardViews) {
+        unsigned long viewIndex = [self.cardViews indexOfObject:cv];
         Card *card = [self.game cardAtIndex:viewIndex];
-        [self updateView:view withCard:card];
-        // [button setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
-        // [view setAttributedTitle:[self titleForCard:card] forState:UIControlStateNormal];
-        // view.enabled = !card.matched;
+        cv.faceUp = card.chosen;
+        cv.active = !card.matched;
+        [self updateView:cv withCard:card];
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
     [self updateStatus];
