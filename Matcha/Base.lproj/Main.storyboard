@@ -63,11 +63,10 @@
                                 </state>
                                 <connections>
                                     <action selector="touchDeal3:" destination="8QJ-w3-Fbn" eventType="touchUpInside" id="4iw-KN-tqX"/>
-                                    <action selector="touchRedeal:" destination="8QJ-w3-Fbn" eventType="touchUpInside" id="m15-B1-Ir3"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIB-2i-HW8">
-                                <rect key="frame" x="0.0" y="88" width="414" height="665"/>
+                                <rect key="frame" x="8" y="96" width="398" height="649"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jB7-Si-NsW">
                                 <rect key="frame" x="179" y="753" width="115" height="60"/>
@@ -82,15 +81,15 @@
                         <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Fjh-jp-UZ2" firstAttribute="bottom" secondItem="jB7-Si-NsW" secondAttribute="bottom" id="2fb-eL-CLn"/>
-                            <constraint firstItem="Fjh-jp-UZ2" firstAttribute="trailing" secondItem="OIB-2i-HW8" secondAttribute="trailing" id="5Gt-x9-VEp"/>
-                            <constraint firstItem="A6F-6k-Z4d" firstAttribute="top" secondItem="OIB-2i-HW8" secondAttribute="bottom" id="5iJ-ld-PCn"/>
+                            <constraint firstItem="Fjh-jp-UZ2" firstAttribute="trailing" secondItem="OIB-2i-HW8" secondAttribute="trailing" constant="8" id="5Gt-x9-VEp"/>
+                            <constraint firstItem="A6F-6k-Z4d" firstAttribute="top" secondItem="OIB-2i-HW8" secondAttribute="bottom" constant="8" id="5iJ-ld-PCn"/>
                             <constraint firstItem="COn-Ff-06R" firstAttribute="leading" secondItem="jB7-Si-NsW" secondAttribute="trailing" id="91E-Ov-GhD"/>
-                            <constraint firstItem="OIB-2i-HW8" firstAttribute="leading" secondItem="Fjh-jp-UZ2" secondAttribute="leading" id="Gxm-5M-eQt"/>
+                            <constraint firstItem="OIB-2i-HW8" firstAttribute="leading" secondItem="Fjh-jp-UZ2" secondAttribute="leading" constant="8" id="Gxm-5M-eQt"/>
                             <constraint firstItem="A6F-6k-Z4d" firstAttribute="leading" secondItem="COn-Ff-06R" secondAttribute="trailing" id="OxS-ne-vGk"/>
                             <constraint firstItem="COn-Ff-06R" firstAttribute="bottom" secondItem="Fjh-jp-UZ2" secondAttribute="bottom" id="Rhg-Cr-STv"/>
                             <constraint firstItem="Fjh-jp-UZ2" firstAttribute="trailing" secondItem="A6F-6k-Z4d" secondAttribute="trailing" id="iN6-nL-Pi6"/>
                             <constraint firstItem="Fjh-jp-UZ2" firstAttribute="bottom" secondItem="A6F-6k-Z4d" secondAttribute="bottom" id="nMC-JH-gvY"/>
-                            <constraint firstItem="OIB-2i-HW8" firstAttribute="top" secondItem="Fjh-jp-UZ2" secondAttribute="top" id="zJP-3m-wIF"/>
+                            <constraint firstItem="OIB-2i-HW8" firstAttribute="top" secondItem="Fjh-jp-UZ2" secondAttribute="top" constant="8" id="zJP-3m-wIF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fjh-jp-UZ2"/>
                     </view>

@@ -17,14 +17,16 @@
 
 @implementation MatchViewController
 
-#define CARDS_IN_MATCH_GAME 12
+#define CARDS_IN_MATCH_GAME 16
+#define MAX_CARDS_IN_MATCH_GAME 16
 
 #pragma mark - Initialization
 
 - (void)viewDidLoad {
     self.unchosenCardsAreFaceDown = YES;
     self.removeMatchedCards = NO;
-    self.cardsInGame = CARDS_IN_MATCH_GAME;
+    self.numberOfCardsInGame = CARDS_IN_MATCH_GAME;
+    self.maxNumberOfCardsInGame = MAX_CARDS_IN_MATCH_GAME;
     [super viewDidLoad];
 }
 

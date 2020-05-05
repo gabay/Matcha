@@ -9,12 +9,14 @@
 #import "GameViewController.h"
 #import "HistoryViewController.h"
 #import "CardMatchingGame.h"
+#import "Grid.h"
 
 @interface GameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UIView *cardsContainerView;
 @property (strong, nonatomic) NSMutableArray *cardViews;
 @property (strong, nonatomic) CardMatchingGame *game;
+@property (strong, nonatomic) Grid *grid;
 @end
 
 @implementation GameViewController
@@ -23,21 +25,36 @@
 
 #pragma mark - Members
 
+- (NSMutableArray *)cardViews {
+    if (!_cardViews) {
+        _cardViews = [NSMutableArray array];
+    }
+    return _cardViews;
+}
+
 - (CardMatchingGame *)game {
     if (!_game) {
-        NSLog(@"Creating game with %ld cards", self.cardsInGame);
-        _game = [[CardMatchingGame alloc] initWithCardCount:self.cardsInGame
+        NSLog(@"Creating game with %ld cards", self.numberOfCardsInGame);
+        _game = [[CardMatchingGame alloc] initWithCardCount:self.numberOfCardsInGame
                                                   usingDeck:[self makeDeck]
                                                   matchSize:[self getMatchSize]];
     }
     return _game;
 }
 
-- (NSMutableArray *)cardViews {
-    if (!_cardViews) {
-        _cardViews = [NSMutableArray array];
+- (Grid *)grid
+{
+    if (!_grid) {
+        _grid = [[Grid alloc] init];
+        _grid.size = self.cardsContainerView.bounds.size;
+        _grid.cellAspectRatio = 0.7;
+        _grid.minimumNumberOfCells = self.maxNumberOfCardsInGame;
+        NSLog(@"%@", [_grid description]);
+        if (!_grid.inputsAreValid) {
+            _grid = nil;
+        }
     }
-    return _cardViews;
+    return _grid;
 }
 
 #pragma mark - Initialization
@@ -67,6 +84,8 @@
     NSLog(@"Touched Redeal button");
     // Redraw cards and reset score
     self.game = nil;
+    [self.cardViews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    self.cardViews = nil;
     [self updateUI];
 }
 
@@ -114,7 +133,7 @@
 
 - (void)drawCards
 {
-    while (self.game.cardsCount < self.cardsInGame) {
+    while (self.game.cardsCount < self.numberOfCardsInGame) {
         if (![self.game drawCard]) {
             // out of cards :)
             break;
@@ -138,9 +157,10 @@
 - (void)addCardView
 {
     // create card
+    NSUInteger index = self.cardViews.count;
     CGRect frame;
-    frame.origin = CGPointZero;
-    frame.size = DEFUALT_CARD_SIZE;
+    frame.origin = [self.grid originOfCellAtIndex:index];
+    frame.size = self.grid.cellSize;
     CardView *cv = [self newCardViewInFrame:frame];
     [self.cardsContainerView addSubview:cv];
     [self.cardViews addObject:cv];
