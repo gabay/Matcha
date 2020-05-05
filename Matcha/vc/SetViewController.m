@@ -17,9 +17,12 @@
 
 @implementation SetViewController
 
+#define CARDS_IN_SET_GAME 12
+
 - (void)viewDidLoad {
     self.unchosenCardsAreFaceDown = NO;
     self.removeMatchedCards = YES;
+    self.cardsInGame = CARDS_IN_SET_GAME;
     [super viewDidLoad];
 }
 
@@ -32,7 +35,7 @@
     return 3;
 }
 
-- (void)updateView:(CardView *)view withCard:(Card *)card
+- (void)updateUIForCardView:(CardView *)view withCard:(Card *)card
 {
     SetCard *sc = (SetCard *)card;
     SetCardView *scv = (SetCardView *)view;
@@ -40,6 +43,11 @@
     scv.shape = sc.shape;
     scv.fill = sc.fill;
     scv.color = sc.color;
+}
+
+- (CardView *)newCardViewInFrame:(CGRect)frame
+{
+    return [[SetCardView alloc] initWithFrame:frame];
 }
 
 /*

@@ -12,7 +12,8 @@
 
 @interface GameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-@property (strong, nonatomic) IBOutletCollection(CardView) NSMutableArray *cardViews;
+@property (weak, nonatomic) IBOutlet UIView *cardsContainerView;
+@property (strong, nonatomic) NSMutableArray *cardViews;
 @property (strong, nonatomic) CardMatchingGame *game;
 @end
 
@@ -24,23 +25,25 @@
 
 - (CardMatchingGame *)game {
     if (!_game) {
-        NSLog(@"Creating game with %ld cards", [self.cardViews count]);
-        _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardViews count]
-                                                   usingDeck:[self makeDeck]
-                                                      matchSize:[self getMatchSize]];
+        NSLog(@"Creating game with %ld cards", self.cardsInGame);
+        _game = [[CardMatchingGame alloc] initWithCardCount:self.cardsInGame
+                                                  usingDeck:[self makeDeck]
+                                                  matchSize:[self getMatchSize]];
     }
     return _game;
+}
+
+- (NSMutableArray *)cardViews {
+    if (!_cardViews) {
+        _cardViews = [NSMutableArray array];
+    }
+    return _cardViews;
 }
 
 #pragma mark - Initialization
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // set tap gesture for all cards
-    for (CardView *cv in self.cardViews) {
-        [cv addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchCard:)]];
-    }
     
     NSLog(@"%@ loaded", self.class);
     [self updateUI];
@@ -78,30 +81,76 @@
     [self updateUI];
 }
 
+#pragma mark - UI update
+
 - (void)updateUI
 {
     if (self.removeMatchedCards) {
-        for (unsigned long index = 0; index < self.game.cardsCount; index++) {
-            if ([self.game cardAtIndex:index].matched) {
-                [self.game removeCardAtIndex:index];
-                UIView *view = self.cardViews[index];
-                [view removeFromSuperview];
-                [self.cardViews removeObjectAtIndex:index];
-            }
-        }
+        [self removeViewsOfMatchedCards];
+    }
+    
+    [self drawCards];
+    while (self.cardViews.count < self.game.cardsCount) {
+        [self addCardView];
     }
     
     for (CardView *cv in self.cardViews) {
-        unsigned long viewIndex = [self.cardViews indexOfObject:cv];
-        Card *card = [self.game cardAtIndex:viewIndex];
-        BOOL shouldFaceUp = (self.unchosenCardsAreFaceDown) ? card.chosen : YES;
-        if (cv.faceUp != shouldFaceUp) {
-            [self animateFlipCardView:cv toFaceUp:shouldFaceUp];
-        }
-        cv.active = !card.matched;
-        [self updateView:cv withCard:card];
+        [self updateUIForCardView:cv];
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
+}
+
+- (void)removeViewsOfMatchedCards
+{
+    for (unsigned long index = 0; index < self.game.cardsCount; index++) {
+        if ([self.game cardAtIndex:index].matched) {
+            [self.game removeCardAtIndex:index];
+            UIView *view = self.cardViews[index];
+            [view removeFromSuperview];
+            [self.cardViews removeObjectAtIndex:index];
+        }
+    }
+}
+
+- (void)drawCards
+{
+    while (self.game.cardsCount < self.cardsInGame) {
+        if (![self.game drawCard]) {
+            // out of cards :)
+            break;
+        };
+    }
+}
+
+- (void)updateUIForCardView:(CardView *)cv
+{
+    unsigned long viewIndex = [self.cardViews indexOfObject:cv];
+    Card *card = [self.game cardAtIndex:viewIndex];
+    
+    BOOL shouldFaceUp = (self.unchosenCardsAreFaceDown) ? card.chosen : YES;
+    if (cv.faceUp != shouldFaceUp) {
+        [self animateFlipCardView:cv toFaceUp:shouldFaceUp];
+    }
+    cv.active = !card.matched;
+    [self updateUIForCardView:cv withCard:card];
+}
+
+- (void)addCardView
+{
+    // create card
+    CGRect frame;
+    frame.origin = CGPointZero;
+    frame.size = DEFUALT_CARD_SIZE;
+    CardView *cv = [self newCardViewInFrame:frame];
+    [self.cardsContainerView addSubview:cv];
+    [self.cardViews addObject:cv];
+    
+    // set gestures
+    [cv addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                     action:@selector(touchCard:)]];
+    
+    // animate it in (TODO)
+
 }
 
 #pragma mark - Animation
@@ -116,7 +165,7 @@
 
 # pragma mark - Abstract Methods
 
-- (void)updateView:(CardView *)view withCard:(Card *)card
+- (void)updateUIForCardView:(CardView *)view withCard:(Card *)card
 {}
 
 - (Deck *)makeDeck
@@ -127,6 +176,11 @@
 - (unsigned int)getMatchSize
 {
     return 0;
+}
+
+- (CardView *)newCardViewInFrame:(CGRect)frame
+{
+    return nil;
 }
 
 @end

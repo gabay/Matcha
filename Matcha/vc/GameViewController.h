@@ -14,6 +14,7 @@
 
 @property (nonatomic) BOOL unchosenCardsAreFaceDown;
 @property (nonatomic) BOOL removeMatchedCards;
+@property (nonatomic) NSUInteger cardsInGame;
 
 // Subclass should implement the following:
 
@@ -21,7 +22,10 @@
 
 - (unsigned int)getMatchSize;
 
-- (void)updateView:(CardView *)view withCard:(Card *)card;
+- (void)updateUIForCardView:(CardView *)view withCard:(Card *)card;
+
+- (CardView *)newCardViewInFrame:(CGRect)frame;
 
 @end
 
+static const CGSize DEFUALT_CARD_SIZE = {80, 140};

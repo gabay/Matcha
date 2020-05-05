@@ -33,46 +33,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="czU-Dy-mSK" customClass="SetCardView">
-                                <rect key="frame" x="20" y="100" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RnI-I3-zlK" customClass="SetCardView">
-                                <rect key="frame" x="108" y="100" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8T-TG-4Y2" customClass="SetCardView">
-                                <rect key="frame" x="196" y="100" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="enf-GV-aG6" customClass="SetCardView">
-                                <rect key="frame" x="284" y="100" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TCd-PU-xMH" customClass="SetCardView">
-                                <rect key="frame" x="20" y="248" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n1L-uy-upR" customClass="SetCardView">
-                                <rect key="frame" x="108" y="248" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OeT-NJ-PJK" customClass="SetCardView">
-                                <rect key="frame" x="196" y="248" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cyj-lB-Azu" customClass="SetCardView">
-                                <rect key="frame" x="284" y="248" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6F-6k-Z4d">
                                 <rect key="frame" x="354" y="754" width="60" height="57.5"/>
                                 <constraints>
@@ -88,37 +48,8 @@
                                     <action selector="touchRedeal:" destination="8QJ-w3-Fbn" eventType="touchUpInside" id="mSv-er-JZl"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jB7-Si-NsW">
-                                <rect key="frame" x="299" y="693" width="115" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="m3a-YR-DuU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T7r-gI-jVk" customClass="SetCardView">
-                                <rect key="frame" x="20" y="396" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="csU-Hw-m5Y" customClass="SetCardView">
-                                <rect key="frame" x="108" y="396" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QuK-y8-fXb" customClass="SetCardView">
-                                <rect key="frame" x="196" y="396" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xw-lt-Lyw" customClass="SetCardView">
-                                <rect key="frame" x="284" y="396" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COn-Ff-06R">
-                                <rect key="frame" x="294" y="755" width="60" height="59"/>
+                                <rect key="frame" x="294" y="752" width="60" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="4h4-bX-AqC"/>
                                     <constraint firstAttribute="width" constant="60" id="So7-Gz-fvI"/>
@@ -135,34 +66,39 @@
                                     <action selector="touchRedeal:" destination="8QJ-w3-Fbn" eventType="touchUpInside" id="m15-B1-Ir3"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIB-2i-HW8">
+                                <rect key="frame" x="0.0" y="88" width="414" height="665"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jB7-Si-NsW">
+                                <rect key="frame" x="179" y="753" width="115" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="m3a-YR-DuU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="A6F-6k-Z4d" firstAttribute="top" secondItem="jB7-Si-NsW" secondAttribute="bottom" id="85R-GA-FRx"/>
+                            <constraint firstItem="Fjh-jp-UZ2" firstAttribute="bottom" secondItem="jB7-Si-NsW" secondAttribute="bottom" id="2fb-eL-CLn"/>
+                            <constraint firstItem="Fjh-jp-UZ2" firstAttribute="trailing" secondItem="OIB-2i-HW8" secondAttribute="trailing" id="5Gt-x9-VEp"/>
+                            <constraint firstItem="A6F-6k-Z4d" firstAttribute="top" secondItem="OIB-2i-HW8" secondAttribute="bottom" id="5iJ-ld-PCn"/>
+                            <constraint firstItem="COn-Ff-06R" firstAttribute="leading" secondItem="jB7-Si-NsW" secondAttribute="trailing" id="91E-Ov-GhD"/>
+                            <constraint firstItem="OIB-2i-HW8" firstAttribute="leading" secondItem="Fjh-jp-UZ2" secondAttribute="leading" id="Gxm-5M-eQt"/>
                             <constraint firstItem="A6F-6k-Z4d" firstAttribute="leading" secondItem="COn-Ff-06R" secondAttribute="trailing" id="OxS-ne-vGk"/>
                             <constraint firstItem="COn-Ff-06R" firstAttribute="bottom" secondItem="Fjh-jp-UZ2" secondAttribute="bottom" id="Rhg-Cr-STv"/>
-                            <constraint firstItem="jB7-Si-NsW" firstAttribute="trailing" secondItem="Fjh-jp-UZ2" secondAttribute="trailing" id="Wht-gQ-07J"/>
                             <constraint firstItem="Fjh-jp-UZ2" firstAttribute="trailing" secondItem="A6F-6k-Z4d" secondAttribute="trailing" id="iN6-nL-Pi6"/>
                             <constraint firstItem="Fjh-jp-UZ2" firstAttribute="bottom" secondItem="A6F-6k-Z4d" secondAttribute="bottom" id="nMC-JH-gvY"/>
+                            <constraint firstItem="OIB-2i-HW8" firstAttribute="top" secondItem="Fjh-jp-UZ2" secondAttribute="top" id="zJP-3m-wIF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fjh-jp-UZ2"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Set" id="g6Q-l1-RHW"/>
                     <navigationItem key="navigationItem" id="mGv-hx-F5N"/>
                     <connections>
+                        <outlet property="cardsContainerView" destination="OIB-2i-HW8" id="4gY-xS-MsO"/>
                         <outlet property="scoreLabel" destination="jB7-Si-NsW" id="Y3c-Vh-eqB"/>
-                        <outletCollection property="cardViews" destination="czU-Dy-mSK" collectionClass="NSMutableArray" id="XWx-eb-lGr"/>
-                        <outletCollection property="cardViews" destination="RnI-I3-zlK" collectionClass="NSMutableArray" id="bps-kQ-OO2"/>
-                        <outletCollection property="cardViews" destination="H8T-TG-4Y2" collectionClass="NSMutableArray" id="spn-pf-6FI"/>
-                        <outletCollection property="cardViews" destination="enf-GV-aG6" collectionClass="NSMutableArray" id="PWs-pR-HH0"/>
-                        <outletCollection property="cardViews" destination="TCd-PU-xMH" collectionClass="NSMutableArray" id="7yz-lc-5oG"/>
-                        <outletCollection property="cardViews" destination="n1L-uy-upR" collectionClass="NSMutableArray" id="q7h-KH-9ZX"/>
-                        <outletCollection property="cardViews" destination="OeT-NJ-PJK" collectionClass="NSMutableArray" id="AZv-Eu-Q8I"/>
-                        <outletCollection property="cardViews" destination="Cyj-lB-Azu" collectionClass="NSMutableArray" id="nUb-M3-ZJu"/>
-                        <outletCollection property="cardViews" destination="T7r-gI-jVk" collectionClass="NSMutableArray" id="miZ-8R-uoA"/>
-                        <outletCollection property="cardViews" destination="csU-Hw-m5Y" collectionClass="NSMutableArray" id="teo-HB-Hlc"/>
-                        <outletCollection property="cardViews" destination="QuK-y8-fXb" collectionClass="NSMutableArray" id="zW6-Hb-rAp"/>
-                        <outletCollection property="cardViews" destination="6xw-lt-Lyw" collectionClass="NSMutableArray" id="V01-NG-5vi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBX-qP-XQL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

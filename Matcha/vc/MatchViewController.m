@@ -17,11 +17,14 @@
 
 @implementation MatchViewController
 
+#define CARDS_IN_MATCH_GAME 12
+
 #pragma mark - Initialization
 
 - (void)viewDidLoad {
     self.unchosenCardsAreFaceDown = YES;
     self.removeMatchedCards = NO;
+    self.cardsInGame = CARDS_IN_MATCH_GAME;
     [super viewDidLoad];
 }
 
@@ -34,12 +37,17 @@
     return 2;
 }
 
-- (void)updateView:(CardView *)view withCard:(Card *)card
+- (void)updateUIForCardView:(CardView *)view withCard:(Card *)card
 {
     PlayingCard *pc = (PlayingCard *)card;
     PlayingCardView *pcv = (PlayingCardView *)view;
     pcv.rank = pc.rank;
     pcv.suit = pc.suit;
+}
+
+- (CardView *)newCardViewInFrame:(CGRect)frame
+{
+    return [[PlayingCardView alloc] initWithFrame:frame];
 }
 
 /*
