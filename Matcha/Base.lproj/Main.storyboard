@@ -163,71 +163,11 @@
                                     <action selector="touchRedeal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Hk-CT-PrE"/>
                                 </connections>
                             </button>
-                            <view opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v7w-fd-pt1" customClass="PlayingCardView">
-                                <rect key="frame" x="35" y="102" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <gestureRecognizers/>
-                            </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o1y-lv-Bqv" customClass="PlayingCardView">
-                                <rect key="frame" x="124" y="102" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EJU-E1-VbT" customClass="PlayingCardView">
-                                <rect key="frame" x="212" y="102" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VBj-PV-tyd" customClass="PlayingCardView">
-                                <rect key="frame" x="300" y="102" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U6y-Z6-0CS" customClass="PlayingCardView">
-                                <rect key="frame" x="35" y="250" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <gestureRecognizers/>
-                            </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S7m-Jd-6eV" customClass="PlayingCardView">
-                                <rect key="frame" x="124" y="250" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2g7-Q2-EJK" customClass="PlayingCardView">
-                                <rect key="frame" x="212" y="250" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="viC-Ot-FX9" customClass="PlayingCardView">
-                                <rect key="frame" x="300" y="250" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZaS-bm-D16" customClass="PlayingCardView">
-                                <rect key="frame" x="35" y="398" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <gestureRecognizers/>
-                            </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R6Z-sL-rdw" customClass="PlayingCardView">
-                                <rect key="frame" x="124" y="398" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q6x-pW-J7P" customClass="PlayingCardView">
-                                <rect key="frame" x="212" y="398" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y03-IQ-ZXG" customClass="PlayingCardView">
-                                <rect key="frame" x="300" y="398" width="80" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHt-BA-wYp">
+                                <rect key="frame" x="8" y="96" width="398" height="649"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhg-tk-JTE">
-                                <rect key="frame" x="299" y="693" width="115" height="60"/>
+                                <rect key="frame" x="239" y="753" width="115" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="XLZ-0H-1Ij"/>
                                 </constraints>
@@ -239,29 +179,22 @@
                         <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Zhg-tk-JTE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4Vm-IE-7Gh"/>
+                            <constraint firstItem="Zhg-tk-JTE" firstAttribute="top" secondItem="IHt-BA-wYp" secondAttribute="bottom" constant="8" id="6uR-5Z-ww7"/>
+                            <constraint firstItem="M8U-u7-yp3" firstAttribute="leading" secondItem="Zhg-tk-JTE" secondAttribute="trailing" id="B1L-6o-Bbx"/>
                             <constraint firstItem="M8U-u7-yp3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BJe-Qk-kyX"/>
-                            <constraint firstItem="M8U-u7-yp3" firstAttribute="top" secondItem="Zhg-tk-JTE" secondAttribute="bottom" id="Hhi-H0-Uih"/>
+                            <constraint firstItem="IHt-BA-wYp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Ixx-RA-J9Z"/>
                             <constraint firstItem="M8U-u7-yp3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="bGA-jj-GSE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IHt-BA-wYp" secondAttribute="trailing" constant="8" id="bbx-Vv-LIW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Zhg-tk-JTE" secondAttribute="bottom" id="qlI-t7-aCT"/>
+                            <constraint firstItem="IHt-BA-wYp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="zOh-4b-iNz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Match" id="IGt-wZ-5jT"/>
                     <navigationItem key="navigationItem" id="DjR-9V-Acx"/>
                     <connections>
+                        <outlet property="cardsContainerView" destination="IHt-BA-wYp" id="eA2-2e-YN1"/>
                         <outlet property="scoreLabel" destination="Zhg-tk-JTE" id="FSG-jx-xja"/>
-                        <outletCollection property="cardViews" destination="v7w-fd-pt1" collectionClass="NSMutableArray" id="Vrk-49-2u2"/>
-                        <outletCollection property="cardViews" destination="o1y-lv-Bqv" collectionClass="NSMutableArray" id="vgc-M4-cRt"/>
-                        <outletCollection property="cardViews" destination="EJU-E1-VbT" collectionClass="NSMutableArray" id="b8I-8n-gWY"/>
-                        <outletCollection property="cardViews" destination="VBj-PV-tyd" collectionClass="NSMutableArray" id="Jis-Sa-o8t"/>
-                        <outletCollection property="cardViews" destination="U6y-Z6-0CS" collectionClass="NSMutableArray" id="38W-2r-bLb"/>
-                        <outletCollection property="cardViews" destination="S7m-Jd-6eV" collectionClass="NSMutableArray" id="Xqo-sr-Tuc"/>
-                        <outletCollection property="cardViews" destination="2g7-Q2-EJK" collectionClass="NSMutableArray" id="l02-Pu-IDr"/>
-                        <outletCollection property="cardViews" destination="viC-Ot-FX9" collectionClass="NSMutableArray" id="sJH-Lh-FEQ"/>
-                        <outletCollection property="cardViews" destination="ZaS-bm-D16" collectionClass="NSMutableArray" id="pd2-dW-Wi4"/>
-                        <outletCollection property="cardViews" destination="R6Z-sL-rdw" collectionClass="NSMutableArray" id="XB6-QE-0Vb"/>
-                        <outletCollection property="cardViews" destination="q6x-pW-J7P" collectionClass="NSMutableArray" id="P9o-Gk-0cb"/>
-                        <outletCollection property="cardViews" destination="Y03-IQ-ZXG" collectionClass="NSMutableArray" id="RQt-Pl-c6E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
