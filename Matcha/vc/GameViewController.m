@@ -51,8 +51,9 @@
 - (IBAction)touchCard:(UITapGestureRecognizer *)sender
 {
     UIView *view = sender.view;
-    
     unsigned long index = [self.cardViews indexOfObject:view];
+    NSLog(@"Touched card #%ld", index);
+    
     [self.game chooseCardAtIndex:index];
     
     [self updateUI];
@@ -60,8 +61,20 @@
 
 - (IBAction)touchRedeal:(UIButton *)sender
 {
+    NSLog(@"Touched Redeal button");
     // Redraw cards and reset score
     self.game = nil;
+    [self updateUI];
+}
+
+- (IBAction)touchDeal3:(UIButton *)sender
+{
+    NSLog(@"Touched Draw3 button");
+    //TODO: draw 3 cards
+    [self.game drawCard];
+    [self.game drawCard];
+    [self.game drawCard];
+    
     [self updateUI];
 }
 

@@ -12,7 +12,7 @@
         <scene sceneID="REN-L1-0WI">
             <objects>
                 <navigationController id="w4l-bu-0ui" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Set" image="triangle" catalog="system" id="sRy-J3-onC"/>
+                    <tabBarItem key="tabBarItem" title="Set" id="sRy-J3-onC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B5l-RX-sDr">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -117,17 +117,37 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COn-Ff-06R">
+                                <rect key="frame" x="294" y="755" width="60" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4h4-bX-AqC"/>
+                                    <constraint firstAttribute="width" constant="60" id="So7-Gz-fvI"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="pse-YZ-4N0"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="qmc-7S-1Jy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="tintColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" backgroundImage="hand.draw" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchDeal3:" destination="8QJ-w3-Fbn" eventType="touchUpInside" id="4iw-KN-tqX"/>
+                                    <action selector="touchRedeal:" destination="8QJ-w3-Fbn" eventType="touchUpInside" id="m15-B1-Ir3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="A6F-6k-Z4d" firstAttribute="top" secondItem="jB7-Si-NsW" secondAttribute="bottom" id="85R-GA-FRx"/>
+                            <constraint firstItem="A6F-6k-Z4d" firstAttribute="leading" secondItem="COn-Ff-06R" secondAttribute="trailing" id="OxS-ne-vGk"/>
+                            <constraint firstItem="COn-Ff-06R" firstAttribute="bottom" secondItem="Fjh-jp-UZ2" secondAttribute="bottom" id="Rhg-Cr-STv"/>
                             <constraint firstItem="jB7-Si-NsW" firstAttribute="trailing" secondItem="Fjh-jp-UZ2" secondAttribute="trailing" id="Wht-gQ-07J"/>
                             <constraint firstItem="Fjh-jp-UZ2" firstAttribute="trailing" secondItem="A6F-6k-Z4d" secondAttribute="trailing" id="iN6-nL-Pi6"/>
                             <constraint firstItem="Fjh-jp-UZ2" firstAttribute="bottom" secondItem="A6F-6k-Z4d" secondAttribute="bottom" id="nMC-JH-gvY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fjh-jp-UZ2"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Set" image="triangle" catalog="system" id="g6Q-l1-RHW"/>
+                    <tabBarItem key="tabBarItem" title="Set" id="g6Q-l1-RHW"/>
                     <navigationItem key="navigationItem" id="mGv-hx-F5N"/>
                     <connections>
                         <outlet property="scoreLabel" destination="jB7-Si-NsW" id="Y3c-Vh-eqB"/>
@@ -153,7 +173,7 @@
         <scene sceneID="7TB-3m-DyU">
             <objects>
                 <navigationController id="NSq-xx-qUV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Match" image="rectangle.on.rectangle" catalog="system" id="RjE-j7-Dsl"/>
+                    <tabBarItem key="tabBarItem" title="Match" id="RjE-j7-Dsl"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fje-xp-twH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -291,7 +311,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Match" image="rectangle.on.rectangle.angled" catalog="system" id="IGt-wZ-5jT"/>
+                    <tabBarItem key="tabBarItem" title="Match" id="IGt-wZ-5jT"/>
                     <navigationItem key="navigationItem" id="DjR-9V-Acx"/>
                     <connections>
                         <outlet property="scoreLabel" destination="Zhg-tk-JTE" id="FSG-jx-xja"/>
@@ -315,9 +335,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="rectangle.on.rectangle" catalog="system" width="128" height="98"/>
-        <image name="rectangle.on.rectangle.angled" catalog="system" width="128" height="101"/>
+        <image name="hand.draw" catalog="system" width="128" height="108"/>
         <image name="repeat" catalog="system" width="128" height="99"/>
-        <image name="triangle" catalog="system" width="128" height="112"/>
     </resources>
 </document>
