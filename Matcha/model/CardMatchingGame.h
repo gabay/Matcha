@@ -17,14 +17,16 @@ NS_ASSUME_NONNULL_BEGIN
 // designated initializer
 - (instancetype)initWithCardCount:(NSUInteger)count
                         usingDeck:(Deck *)deck
-                           matchSize:(unsigned int)matchSize;
+                        matchSize:(unsigned int)matchSize;
 - (void)chooseCardAtIndex:(NSUInteger)index;
 - (Card *)cardAtIndex:(NSUInteger)index;
 
+- (void)removeCardAtIndex:(NSUInteger)index;
+- (BOOL)drawCard;
+
 @property (nonatomic, readonly) NSInteger score;
-@property (nonatomic, readonly) NSInteger scoreDiff;
-@property (nonatomic, readonly) NSArray * cardsChanged;
 @property (nonatomic, readonly) NSArray * moves;
+@property (nonatomic, readonly) NSUInteger count;
 @property (nonatomic) unsigned int matchSize;
 @end
 

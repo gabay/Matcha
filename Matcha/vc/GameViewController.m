@@ -79,6 +79,8 @@
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
 }
 
+#pragma mark - Anumation
+
 - (void)animateFlipCardView:(CardView *)cardView toFaceUp:(BOOL)faceUp {
     [UIView transitionWithView:cardView
                       duration:FLIP_DURATION
@@ -86,6 +88,8 @@
                     animations:^{cardView.faceUp = faceUp;}
                     completion:^(BOOL fin){}];
 }
+
+# pragma mark - Abstract Methods
 
 - (void)updateView:(CardView *)view withCard:(Card *)card
 {}
