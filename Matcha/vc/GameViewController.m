@@ -51,7 +51,7 @@
         _grid = [[Grid alloc] init];
         _grid.size = self.cardsContainerView.bounds.size;
         _grid.cellAspectRatio = CARD_ASPECT_RATIO;
-        _grid.minimumNumberOfCells = self.maxNumberOfCardsInGame;
+        _grid.minimumNumberOfCells = MAX(self.numberOfCardsInGame, self.cardViews.count);
         NSLog(@"%@", [_grid description]);
         if (!_grid.inputsAreValid) {
             _grid = nil;
@@ -111,10 +111,9 @@
         [self removeViewsOfMatchedCards];
     }
     
-    [self drawCards];
-    while (self.cardViews.count < self.game.cardsCount) {
-        [self addCardView];
-    }
+    [self drawNewCards];
+    
+    [self addCardViews];
     
     [self animateMoveCardViews];
 
@@ -132,12 +131,12 @@
     for (CardView *cv in viewsToRemove) {
         unsigned long index = [self.cardViews indexOfObject:cv];
         [self.game removeCardAtIndex:index];
-        [cv removeFromSuperview];
         [self.cardViews removeObject:cv];
+        [self animateRemoveCardView:cv];
     }
 }
 
-- (void)drawCards
+- (void)drawNewCards
 {
     while (self.game.cardsCount < self.numberOfCardsInGame) {
         if (![self.game drawCard]) {
@@ -160,21 +159,19 @@
     [self updateUIForCardView:cv withCard:card];
 }
 
-- (void)addCardView
+- (void)addCardViews
 {
-    // create card
-    NSUInteger index = self.cardViews.count;
-    CGRect frame = [self.grid FrameOfCellAtIndex:index];
-    CardView *cv = [self newCardViewInFrame:frame];
-    [self.cardsContainerView addSubview:cv];
-    [self.cardViews addObject:cv];
-    
-    // set gestures
-    [cv addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                     action:@selector(touchCard:)]];
-    
-    // animate it in (TODO)
-
+    while (self.cardViews.count < self.game.cardsCount) {
+        // create card on bottom right
+        CGRect frame = CGRectMake(0, self.view.bounds.size.height, 0, 0);
+        CardView *cv = [self newCardViewInFrame:frame];
+        [self.cardsContainerView addSubview:cv];
+        [self.cardViews addObject:cv];
+        
+        // set gestures
+        [cv addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                         action:@selector(touchCard:)]];
+    }
 }
 
 #pragma mark - Animation
@@ -188,10 +185,12 @@
 }
 
 - (void)animateMoveCardViews {
+    // Generate a new grid each time
+    self.grid = nil;
     __weak GameViewController *weakSelf = self;
     [UIView animateWithDuration:MOVE_DURATION
                           delay: 0.0
-                        options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionTransitionFlipFromLeft
+                        options:UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
         for (CardView *cv in weakSelf.cardViews) {
             NSUInteger index = [weakSelf.cardViews indexOfObject:cv];
@@ -201,6 +200,17 @@
         }
     }
                      completion:nil];
+}
+
+- (void)animateRemoveCardView:(CardView *)cardView
+{
+    CGFloat x = self.view.bounds.size.width;
+    CGFloat y = self.view.bounds.size.height;
+    [UIView transitionWithView:cardView
+                      duration:MOVE_DURATION
+                       options:UIViewAnimationOptionBeginFromCurrentState
+                    animations:^{[cardView setFrame:CGRectMake(x, y, 0, 0)];}
+                    completion:^(BOOL fin){[cardView removeFromSuperview];}];
 }
 
 # pragma mark - Abstract Methods

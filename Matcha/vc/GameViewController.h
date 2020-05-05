@@ -15,7 +15,6 @@
 @property (nonatomic) BOOL unchosenCardsAreFaceDown;
 @property (nonatomic) BOOL removeMatchedCards;
 @property (nonatomic) NSUInteger numberOfCardsInGame;
-@property (nonatomic) NSUInteger maxNumberOfCardsInGame;
 
 // Subclass should implement the following:
 

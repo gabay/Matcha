@@ -18,13 +18,11 @@
 @implementation SetViewController
 
 #define CARDS_IN_SET_GAME 12
-#define MAX_CARDS_IN_SET_GAME 18
 
 - (void)viewDidLoad {
     self.unchosenCardsAreFaceDown = NO;
     self.removeMatchedCards = YES;
     self.numberOfCardsInGame = CARDS_IN_SET_GAME;
-    self.maxNumberOfCardsInGame = MAX_CARDS_IN_SET_GAME;
     [super viewDidLoad];
 }
 
