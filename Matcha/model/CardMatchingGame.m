@@ -43,7 +43,7 @@ static const int MISMATCH_PENALTY = -2;
 
 #pragma mark - Members
 
-- (NSUInteger)count
+- (NSUInteger)cardsCount
 {
     return self.cards.count;
 }
@@ -102,7 +102,7 @@ static const int MISMATCH_PENALTY = -2;
 
 - (Card *)cardAtIndex:(NSUInteger)index
 {
-    return index < [self.cards count] ? self.cards[index] : nil;
+    return (index < self.cardsCount) ? self.cards[index] : nil;
 }
 
 - (void)removeCardAtIndex:(NSUInteger)index

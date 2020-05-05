@@ -13,6 +13,7 @@
 @interface GameViewController : UIViewController
 
 @property (nonatomic) BOOL unchosenCardsAreFaceDown;
+@property (nonatomic) BOOL removeMatchedCards;
 
 // Subclass should implement the following:
 

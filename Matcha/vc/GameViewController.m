@@ -12,7 +12,7 @@
 
 @interface GameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-@property (strong, nonatomic) IBOutletCollection(CardView) NSArray *cardViews;
+@property (strong, nonatomic) IBOutletCollection(CardView) NSMutableArray *cardViews;
 @property (strong, nonatomic) CardMatchingGame *game;
 @end
 
@@ -67,6 +67,17 @@
 
 - (void)updateUI
 {
+    if (self.removeMatchedCards) {
+        for (unsigned long index = 0; index < self.game.cardsCount; index++) {
+            if ([self.game cardAtIndex:index].matched) {
+                [self.game removeCardAtIndex:index];
+                UIView *view = self.cardViews[index];
+                [view removeFromSuperview];
+                [self.cardViews removeObjectAtIndex:index];
+            }
+        }
+    }
+    
     for (CardView *cv in self.cardViews) {
         unsigned long viewIndex = [self.cardViews indexOfObject:cv];
         Card *card = [self.game cardAtIndex:viewIndex];
@@ -75,11 +86,12 @@
             [self animateFlipCardView:cv toFaceUp:shouldFaceUp];
         }
         cv.active = !card.matched;
+        [self updateView:cv withCard:card];
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
 }
 
-#pragma mark - Anumation
+#pragma mark - Animation
 
 - (void)animateFlipCardView:(CardView *)cardView toFaceUp:(BOOL)faceUp {
     [UIView transitionWithView:cardView

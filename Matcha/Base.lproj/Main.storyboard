@@ -131,18 +131,18 @@
                     <navigationItem key="navigationItem" id="mGv-hx-F5N"/>
                     <connections>
                         <outlet property="scoreLabel" destination="jB7-Si-NsW" id="Y3c-Vh-eqB"/>
-                        <outletCollection property="cardViews" destination="czU-Dy-mSK" id="XWx-eb-lGr"/>
-                        <outletCollection property="cardViews" destination="RnI-I3-zlK" id="bps-kQ-OO2"/>
-                        <outletCollection property="cardViews" destination="H8T-TG-4Y2" id="spn-pf-6FI"/>
-                        <outletCollection property="cardViews" destination="enf-GV-aG6" id="PWs-pR-HH0"/>
-                        <outletCollection property="cardViews" destination="TCd-PU-xMH" id="7yz-lc-5oG"/>
-                        <outletCollection property="cardViews" destination="n1L-uy-upR" id="q7h-KH-9ZX"/>
-                        <outletCollection property="cardViews" destination="OeT-NJ-PJK" id="AZv-Eu-Q8I"/>
-                        <outletCollection property="cardViews" destination="Cyj-lB-Azu" id="nUb-M3-ZJu"/>
-                        <outletCollection property="cardViews" destination="T7r-gI-jVk" id="miZ-8R-uoA"/>
-                        <outletCollection property="cardViews" destination="csU-Hw-m5Y" id="teo-HB-Hlc"/>
-                        <outletCollection property="cardViews" destination="QuK-y8-fXb" id="zW6-Hb-rAp"/>
-                        <outletCollection property="cardViews" destination="6xw-lt-Lyw" id="V01-NG-5vi"/>
+                        <outletCollection property="cardViews" destination="czU-Dy-mSK" collectionClass="NSMutableArray" id="XWx-eb-lGr"/>
+                        <outletCollection property="cardViews" destination="RnI-I3-zlK" collectionClass="NSMutableArray" id="bps-kQ-OO2"/>
+                        <outletCollection property="cardViews" destination="H8T-TG-4Y2" collectionClass="NSMutableArray" id="spn-pf-6FI"/>
+                        <outletCollection property="cardViews" destination="enf-GV-aG6" collectionClass="NSMutableArray" id="PWs-pR-HH0"/>
+                        <outletCollection property="cardViews" destination="TCd-PU-xMH" collectionClass="NSMutableArray" id="7yz-lc-5oG"/>
+                        <outletCollection property="cardViews" destination="n1L-uy-upR" collectionClass="NSMutableArray" id="q7h-KH-9ZX"/>
+                        <outletCollection property="cardViews" destination="OeT-NJ-PJK" collectionClass="NSMutableArray" id="AZv-Eu-Q8I"/>
+                        <outletCollection property="cardViews" destination="Cyj-lB-Azu" collectionClass="NSMutableArray" id="nUb-M3-ZJu"/>
+                        <outletCollection property="cardViews" destination="T7r-gI-jVk" collectionClass="NSMutableArray" id="miZ-8R-uoA"/>
+                        <outletCollection property="cardViews" destination="csU-Hw-m5Y" collectionClass="NSMutableArray" id="teo-HB-Hlc"/>
+                        <outletCollection property="cardViews" destination="QuK-y8-fXb" collectionClass="NSMutableArray" id="zW6-Hb-rAp"/>
+                        <outletCollection property="cardViews" destination="6xw-lt-Lyw" collectionClass="NSMutableArray" id="V01-NG-5vi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBX-qP-XQL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -292,77 +292,26 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Match" image="rectangle.on.rectangle.angled" catalog="system" id="IGt-wZ-5jT"/>
-                    <navigationItem key="navigationItem" id="DjR-9V-Acx">
-                        <barButtonItem key="rightBarButtonItem" title="History" id="ilx-lO-INQ"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="DjR-9V-Acx"/>
                     <connections>
                         <outlet property="scoreLabel" destination="Zhg-tk-JTE" id="FSG-jx-xja"/>
-                        <outletCollection property="cardViews" destination="v7w-fd-pt1" id="Vrk-49-2u2"/>
-                        <outletCollection property="cardViews" destination="o1y-lv-Bqv" id="vgc-M4-cRt"/>
-                        <outletCollection property="cardViews" destination="EJU-E1-VbT" id="b8I-8n-gWY"/>
-                        <outletCollection property="cardViews" destination="VBj-PV-tyd" id="Jis-Sa-o8t"/>
-                        <outletCollection property="cardViews" destination="v7w-fd-pt1" id="ojX-aP-KQ8"/>
-                        <outletCollection property="cardViews" destination="o1y-lv-Bqv" id="SJH-UT-iYV"/>
-                        <outletCollection property="cardViews" destination="EJU-E1-VbT" id="9Ho-V0-t5g"/>
-                        <outletCollection property="cardViews" destination="VBj-PV-tyd" id="Io2-7e-14j"/>
-                        <outletCollection property="cardViews" destination="U6y-Z6-0CS" id="38W-2r-bLb"/>
-                        <outletCollection property="cardViews" destination="S7m-Jd-6eV" id="Xqo-sr-Tuc"/>
-                        <outletCollection property="cardViews" destination="2g7-Q2-EJK" id="l02-Pu-IDr"/>
-                        <outletCollection property="cardViews" destination="viC-Ot-FX9" id="sJH-Lh-FEQ"/>
-                        <outletCollection property="cardViews" destination="ZaS-bm-D16" id="pd2-dW-Wi4"/>
-                        <outletCollection property="cardViews" destination="R6Z-sL-rdw" id="XB6-QE-0Vb"/>
-                        <outletCollection property="cardViews" destination="q6x-pW-J7P" id="P9o-Gk-0cb"/>
-                        <outletCollection property="cardViews" destination="Y03-IQ-ZXG" id="RQt-Pl-c6E"/>
+                        <outletCollection property="cardViews" destination="v7w-fd-pt1" collectionClass="NSMutableArray" id="Vrk-49-2u2"/>
+                        <outletCollection property="cardViews" destination="o1y-lv-Bqv" collectionClass="NSMutableArray" id="vgc-M4-cRt"/>
+                        <outletCollection property="cardViews" destination="EJU-E1-VbT" collectionClass="NSMutableArray" id="b8I-8n-gWY"/>
+                        <outletCollection property="cardViews" destination="VBj-PV-tyd" collectionClass="NSMutableArray" id="Jis-Sa-o8t"/>
+                        <outletCollection property="cardViews" destination="U6y-Z6-0CS" collectionClass="NSMutableArray" id="38W-2r-bLb"/>
+                        <outletCollection property="cardViews" destination="S7m-Jd-6eV" collectionClass="NSMutableArray" id="Xqo-sr-Tuc"/>
+                        <outletCollection property="cardViews" destination="2g7-Q2-EJK" collectionClass="NSMutableArray" id="l02-Pu-IDr"/>
+                        <outletCollection property="cardViews" destination="viC-Ot-FX9" collectionClass="NSMutableArray" id="sJH-Lh-FEQ"/>
+                        <outletCollection property="cardViews" destination="ZaS-bm-D16" collectionClass="NSMutableArray" id="pd2-dW-Wi4"/>
+                        <outletCollection property="cardViews" destination="R6Z-sL-rdw" collectionClass="NSMutableArray" id="XB6-QE-0Vb"/>
+                        <outletCollection property="cardViews" destination="q6x-pW-J7P" collectionClass="NSMutableArray" id="P9o-Gk-0cb"/>
+                        <outletCollection property="cardViews" destination="Y03-IQ-ZXG" collectionClass="NSMutableArray" id="RQt-Pl-c6E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-349.27536231884062" y="-431.25"/>
-        </scene>
-        <!--History-->
-        <scene sceneID="IqI-Gt-YVe">
-            <objects>
-                <viewController id="pXw-Q3-mW1" customClass="HistoryViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9lw-LV-hMr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1m-NL-fUI">
-                                <rect key="frame" x="20" y="176" width="374" height="549"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Bq-5J-lQ3">
-                                <rect key="frame" x="20" y="733" width="374" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="score   |   cards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUe-cZ-iSH">
-                                <rect key="frame" x="20" y="88" width="374" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="Xvj-g0-Nyu"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="History" id="CYF-JK-QW2"/>
-                    <connections>
-                        <outlet property="textarea" destination="f1m-NL-fUI" id="fDd-SX-FxK"/>
-                        <outlet property="totalScoreLabel" destination="9Bq-5J-lQ3" id="kvq-0u-w3K"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tEm-h1-Iyk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="569.56521739130437" y="-63.616071428571423"/>
         </scene>
     </scenes>
     <resources>

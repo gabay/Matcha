@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) NSInteger score;
 @property (nonatomic, readonly) NSArray * moves;
-@property (nonatomic, readonly) NSUInteger count;
+@property (nonatomic, readonly) NSUInteger cardsCount;
 @property (nonatomic) unsigned int matchSize;
 @end
 

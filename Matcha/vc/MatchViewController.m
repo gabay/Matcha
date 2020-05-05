@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     self.unchosenCardsAreFaceDown = YES;
+    self.removeMatchedCards = NO;
     [super viewDidLoad];
 }
 
