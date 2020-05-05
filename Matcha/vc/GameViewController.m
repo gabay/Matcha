@@ -17,6 +17,8 @@
 @property (strong, nonatomic) NSMutableArray *cardViews;
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (strong, nonatomic) Grid *grid;
+@property (strong, nonatomic) NSMutableArray *stackOfCardViews;
+@property (strong, nonatomic) UIView *stackView;
 @end
 
 @implementation GameViewController
@@ -60,6 +62,24 @@
     return _grid;
 }
 
+- (NSMutableArray *)stackOfCardViews
+{
+    if (!_stackOfCardViews) {
+        _stackOfCardViews = [[NSMutableArray alloc] init];
+    }
+    return _stackOfCardViews;
+}
+
+- (UIView *)stackView
+{
+    if (!_stackView) {
+        _stackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.grid.cellSize.width, self.grid.cellSize.height)];
+        [_stackView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panStackOfCards:)]];
+        [_stackView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchStackOfCards:)]];
+    }
+    return _stackView;
+}
+
 #pragma mark - Initialization
 
 - (void)viewDidLoad {
@@ -75,7 +95,7 @@
 {
     UIView *view = sender.view;
     unsigned long index = [self.cardViews indexOfObject:view];
-    NSLog(@"Touched card #%ld", index);
+    NSLog(@"Touch card #%ld", index);
     
     [self.game chooseCardAtIndex:index];
     
@@ -84,7 +104,7 @@
 
 - (IBAction)touchRedeal:(UIButton *)sender
 {
-    NSLog(@"Touched Redeal button");
+    NSLog(@"Touch Redeal button");
     // Redraw cards and reset score
     self.game = nil;
     for (CardView *cardView in self.cardViews) {
@@ -96,13 +116,58 @@
 
 - (IBAction)touchDeal3:(UIButton *)sender
 {
-    NSLog(@"Touched Draw3 button");
-    //TODO: draw 3 cards
+    NSLog(@"Touch Draw3 button");
     [self.game drawCard];
     [self.game drawCard];
     [self.game drawCard];
     
     [self updateUI];
+}
+
+- (IBAction)pinchCard:(UIPinchGestureRecognizer *)sender
+{
+    NSLog(@"Pinch card");
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        CardView *cardView = (CardView *)sender.view;
+        [self stackCardView:cardView];
+        [self updateUI];
+    }
+}
+
+- (IBAction)panStackOfCards:(UIPanGestureRecognizer *)sender
+{
+    NSLog(@"Pan stack");
+    if (sender.state == UIGestureRecognizerStateChanged || sender.state == UIGestureRecognizerStateEnded) {
+        [self moveStackBy:[sender translationInView:self.view]];
+        [sender setTranslation:CGPointZero inView:self.view];
+    }
+}
+
+- (IBAction)touchStackOfCards:(UITapGestureRecognizer *)sender
+{
+    NSLog(@"Touch Stack");
+    self.stackOfCardViews = nil;
+    self.stackView = nil;
+    [self updateUI];
+}
+
+#pragma mark - cards stack
+
+- (void)stackCardView:(CardView *)cardView
+{
+    if (![self.stackOfCardViews containsObject:cardView]) {
+        [self.stackOfCardViews addObject:cardView];
+        [cardView setFrame:self.stackView.frame];
+    }
+}
+
+- (void)moveStackBy:(CGPoint)translation
+{
+    CGFloat x = self.stackView.bounds.origin.x + translation.x;
+    CGFloat y = self.stackView.bounds.origin.y + translation.y;
+    CGFloat height = self.grid.cellSize.height;
+    CGFloat width = self.grid.cellSize.width;
+    [self.stackView setFrame:CGRectMake(x, y, width, height)];
 }
 
 #pragma mark - UI update
@@ -171,8 +236,8 @@
         [self.cardViews addObject:cv];
         
         // set gestures
-        [cv addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                         action:@selector(touchCard:)]];
+        [cv addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchCard:)]];
+        [cv addGestureRecognizer:[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchCard:)]];
     }
 }
 
@@ -195,10 +260,12 @@
                         options:UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
         for (CardView *cv in weakSelf.cardViews) {
-            NSUInteger index = [weakSelf.cardViews indexOfObject:cv];
-            CGRect newFrame = CGRectInset([weakSelf.grid FrameOfCellAtIndex:index], 3, 3);
-            [cv setFrame:newFrame];
-            [weakSelf updateUIForCardView:cv];
+            if (![self.stackOfCardViews containsObject:cv]) {
+                NSUInteger index = [weakSelf.cardViews indexOfObject:cv];
+                CGRect newFrame = CGRectInset([weakSelf.grid FrameOfCellAtIndex:index], 3, 3);
+                [cv setFrame:newFrame];
+                [weakSelf updateUIForCardView:cv];
+            }
         }
     }
                      completion:nil];
