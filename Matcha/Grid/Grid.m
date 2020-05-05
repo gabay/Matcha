@@ -101,6 +101,8 @@
     return self.resolved;
 }
 
+#pragma mark Cell Location Getters
+
 - (CGPoint)originOfCellAtRow:(NSUInteger)row inColumn:(NSUInteger)column
 {
     return CGPointMake(column * self.cellSize.width, row * self.cellSize.height);
@@ -123,10 +125,17 @@
 - (CGRect)frameOfCellAtRow:(NSUInteger)row inColumn:(NSUInteger)column
 {
     CGRect frame = CGRectMake(0, 0, self.cellSize.width, self.cellSize.height);
-    frame.origin.x += column * self.cellSize.width;
-    frame.origin.y += row * self.cellSize.height;
+    frame.origin = [self originOfCellAtRow:row inColumn:column];
     return frame;
 }
+
+- (CGRect)FrameOfCellAtIndex:(NSUInteger)index
+{
+    return [self frameOfCellAtRow:(index / self.columnCount)
+                          inColumn:(index % self.columnCount)];
+}
+
+#pragma mark - Setters
 
 - (void)setMinimumNumberOfCells:(NSUInteger)minimumNumberOfCells
 {

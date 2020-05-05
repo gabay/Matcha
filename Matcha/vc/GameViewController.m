@@ -22,6 +22,9 @@
 @implementation GameViewController
 
 #define FLIP_DURATION 0.3
+#define MOVE_DURATION 0.5
+
+#define CARD_ASPECT_RATIO 0.7
 
 #pragma mark - Members
 
@@ -47,7 +50,7 @@
     if (!_grid) {
         _grid = [[Grid alloc] init];
         _grid.size = self.cardsContainerView.bounds.size;
-        _grid.cellAspectRatio = 0.7;
+        _grid.cellAspectRatio = CARD_ASPECT_RATIO;
         _grid.minimumNumberOfCells = self.maxNumberOfCardsInGame;
         NSLog(@"%@", [_grid description]);
         if (!_grid.inputsAreValid) {
@@ -113,21 +116,24 @@
         [self addCardView];
     }
     
-    for (CardView *cv in self.cardViews) {
-        [self updateUIForCardView:cv];
-    }
+    [self animateMoveCardViews];
+
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
 }
 
 - (void)removeViewsOfMatchedCards
 {
+    NSMutableArray *viewsToRemove = [NSMutableArray array];
     for (unsigned long index = 0; index < self.game.cardsCount; index++) {
         if ([self.game cardAtIndex:index].matched) {
-            [self.game removeCardAtIndex:index];
-            UIView *view = self.cardViews[index];
-            [view removeFromSuperview];
-            [self.cardViews removeObjectAtIndex:index];
+            [viewsToRemove addObject:self.cardViews[index]];
         }
+    }
+    for (CardView *cv in viewsToRemove) {
+        unsigned long index = [self.cardViews indexOfObject:cv];
+        [self.game removeCardAtIndex:index];
+        [cv removeFromSuperview];
+        [self.cardViews removeObject:cv];
     }
 }
 
@@ -158,9 +164,7 @@
 {
     // create card
     NSUInteger index = self.cardViews.count;
-    CGRect frame;
-    frame.origin = [self.grid originOfCellAtIndex:index];
-    frame.size = self.grid.cellSize;
+    CGRect frame = [self.grid FrameOfCellAtIndex:index];
     CardView *cv = [self newCardViewInFrame:frame];
     [self.cardsContainerView addSubview:cv];
     [self.cardViews addObject:cv];
@@ -181,6 +185,22 @@
                        options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionTransitionFlipFromLeft
                     animations:^{cardView.faceUp = faceUp;}
                     completion:^(BOOL fin){}];
+}
+
+- (void)animateMoveCardViews {
+    __weak GameViewController *weakSelf = self;
+    [UIView animateWithDuration:MOVE_DURATION
+                          delay: 0.0
+                        options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionTransitionFlipFromLeft
+                     animations:^{
+        for (CardView *cv in weakSelf.cardViews) {
+            NSUInteger index = [weakSelf.cardViews indexOfObject:cv];
+            CGRect newFrame = CGRectInset([weakSelf.grid FrameOfCellAtIndex:index], 3, 3);
+            [cv setFrame:newFrame];
+            [weakSelf updateUIForCardView:cv];
+        }
+    }
+                     completion:nil];
 }
 
 # pragma mark - Abstract Methods

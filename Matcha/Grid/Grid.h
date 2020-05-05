@@ -53,7 +53,9 @@
 - (CGPoint)centerOfCellAtRow:(NSUInteger)row inColumn:(NSUInteger)column;
 - (CGRect)frameOfCellAtRow:(NSUInteger)row inColumn:(NSUInteger)column;
 
+// Roi Gabay additions:
 - (CGPoint)originOfCellAtRow:(NSUInteger)row inColumn:(NSUInteger)column;
 - (CGPoint)originOfCellAtIndex:(NSUInteger)index;
+- (CGRect)FrameOfCellAtIndex:(NSUInteger)index;
 
 @end
