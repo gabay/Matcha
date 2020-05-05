@@ -87,7 +87,9 @@
     NSLog(@"Touched Redeal button");
     // Redraw cards and reset score
     self.game = nil;
-    [self.cardViews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    for (CardView *cardView in self.cardViews) {
+        [self animateRemoveCardView:cardView];
+    }
     self.cardViews = nil;
     [self updateUI];
 }
@@ -204,6 +206,7 @@
 
 - (void)animateRemoveCardView:(CardView *)cardView
 {
+    // move to bottom right, then remove
     CGFloat x = self.view.bounds.size.width;
     CGFloat y = self.view.bounds.size.height;
     [UIView transitionWithView:cardView
