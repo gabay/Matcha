@@ -64,7 +64,6 @@ static const double STANDARD_CORNER_RADIUS = 12;
 {
     self.backgroundColor = nil;
     self.opaque = NO;
-    self.contentMode = UIViewContentModeRedraw;
 }
 
 - (void)awakeFromNib
