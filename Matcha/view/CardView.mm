@@ -71,7 +71,7 @@ static const double STANDARD_CORNER_RADIUS = 12;
 - (id)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        // initialize
+        [self setup];
     }
     return self;
 }

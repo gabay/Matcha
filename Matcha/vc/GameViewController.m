@@ -298,6 +298,8 @@
             NSUInteger index = [self.cardViews indexOfObject:cardView];
             CGRect frame = CGRectInset([grid FrameOfCellAtIndex:index], 3, 3);
             [self animateMoveCardView:cardView toFrame:frame];
+        } else {
+            [self updateUIForCardView:cardView];
         }
     }
 }
