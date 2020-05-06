@@ -96,6 +96,12 @@
     [self updateUI];
 }
 
+- (void)viewDidLayoutSubviews
+{
+    NSLog(@"%@ layout subviews", self.class);
+    [self updateUI];
+}
+
 #pragma mark - Gestures
 
 - (IBAction)touchCard:(UITapGestureRecognizer *)sender
