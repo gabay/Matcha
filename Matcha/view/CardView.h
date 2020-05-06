@@ -10,6 +10,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) BOOL faceUp;
 @property (nonatomic) BOOL active;
+@property (nonatomic) BOOL chosen;
 
 - (CGFloat)scaleFactor;
 - (CGFloat)cornerRadius;

@@ -262,6 +262,7 @@
         [self animateFlipCardView:cv toFaceUp:shouldFaceUp];
     }
     cv.active = !card.matched;
+    cv.chosen = card.chosen;
     [self updateUIForCardView:cv withCard:card];
 }
 
@@ -304,22 +305,17 @@
             NSUInteger index = [self.cardViews indexOfObject:cardView];
             CGRect frame = CGRectInset([grid FrameOfCellAtIndex:index], 3, 3);
             [self animateMoveCardView:cardView toFrame:frame];
-        } else {
-            [self updateUIForCardView:cardView];
         }
+        [self updateUIForCardView:cardView];
     }
 }
 
 - (void)animateMoveCardView:(CardView *)cardView toFrame:(CGRect)frame
 {
-    __weak GameViewController *weakSelf = self;
     [UIView animateWithDuration:MOVE_DURATION
                           delay: 0.0
                         options:UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{
-            [cardView setFrame:frame];
-            [weakSelf updateUIForCardView:cardView];
-        }
+                     animations:^{[cardView setFrame:frame];}
                      completion:nil];
 }
 

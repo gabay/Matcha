@@ -27,6 +27,12 @@ static const double STANDARD_CORNER_RADIUS = 12;
     [self setNeedsDisplay];
 }
 
+- (void)setChosen:(BOOL)chosen
+{
+    _chosen = chosen;
+    [self setNeedsDisplay];
+}
+
 #pragma mark - Drawing
 
 - (void)drawRect:(CGRect)rect
@@ -35,11 +41,10 @@ static const double STANDARD_CORNER_RADIUS = 12;
     UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:[self cornerRadius]];
     [roundedRect addClip];
     
-    if (self.active) {
-        [[UIColor whiteColor] setFill];
-    } else {
-        [[[UIColor grayColor] colorWithAlphaComponent:0.3] setFill];
-    }
+    UIColor *color = (!self.active) ? [[UIColor grayColor] colorWithAlphaComponent:0.3] :
+                     (!self.chosen) ? [UIColor whiteColor] :
+                                      [UIColor colorWithWhite:0.9 alpha:1.0];
+    [color setFill];
     UIRectFill(self.bounds);
     
     // draw card content
