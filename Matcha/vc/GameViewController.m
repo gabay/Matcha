@@ -18,6 +18,10 @@
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (strong, nonatomic) NSMutableArray *stackOfCardViews;
 @property (strong, nonatomic) UIView *stackView;
+
+// Dynamic animation
+@property (strong, nonatomic) UIDynamicAnimator *animator;
+@property (strong, nonatomic) UISnapBehavior *attachment;
 @end
 
 @implementation GameViewController
@@ -60,13 +64,22 @@
     if (!_stackView) {
         CGFloat width = self.view.bounds.size.width * STACK_PORTION_OF_VIEW;
         CGFloat height = width / CARD_ASPECT_RATIO;
-        _stackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+        CGFloat x = self.view.center.x - width / 2;
+        CGFloat y = self.view.center.y - height / 2;
+        _stackView = [[UIView alloc] initWithFrame:CGRectMake(x, y, width, height)];
         _stackView.backgroundColor = nil;
         _stackView.opaque = NO;
-        [_stackView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panStackOfCards:)]];
-        [_stackView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchStackOfCards:)]];
+        [self.view addSubview:_stackView];
     }
     return _stackView;
+}
+
+- (UIDynamicAnimator *)animator
+{
+    if (!_animator) {
+        _animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    }
+    return _animator;
 }
 
 #pragma mark - Initialization
@@ -75,6 +88,11 @@
     [super viewDidLoad];
     
     NSLog(@"%@ loaded", self.class);
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"%@ appeared", self.class);
     [self updateUI];
 }
 
@@ -86,7 +104,11 @@
     unsigned long index = [self.cardViews indexOfObject:view];
     NSLog(@"Touch card #%ld", index);
     
-    [self.game chooseCardAtIndex:index];
+    if ([self.stackOfCardViews containsObject:view]) {
+        [self dismissStackOfCards];
+    } else {
+        [self.game chooseCardAtIndex:index];
+    }
     
     [self updateUI];
 }
@@ -119,25 +141,23 @@
     if (sender.state == UIGestureRecognizerStateBegan) {
         CardView *cardView = (CardView *)sender.view;
         [self stackCardView:cardView];
-        [self updateUI];
     }
 }
 
 - (IBAction)panStackOfCards:(UIPanGestureRecognizer *)sender
 {
-    NSLog(@"Pan stack");
-    if (sender.state == UIGestureRecognizerStateChanged || sender.state == UIGestureRecognizerStateEnded) {
-        [self moveStackBy:[sender translationInView:self.view]];
-        [sender setTranslation:CGPointZero inView:self.view];
+    if ([self.stackOfCardViews containsObject:sender.view]) {
+        NSLog(@"Pan stack");
+        CGPoint gesturePoint = [sender locationInView:self.view];
+        if (sender.state == UIGestureRecognizerStateBegan) {
+            [self attachStackToPoint:gesturePoint];
+        } else if (sender.state == UIGestureRecognizerStateChanged) {
+            self.attachment.snapPoint = gesturePoint;
+        } else if (sender.state == UIGestureRecognizerStateEnded) {
+            [self.animator removeBehavior:self.attachment];
+            self.attachment = nil;
+        }
     }
-}
-
-- (IBAction)touchStackOfCards:(UITapGestureRecognizer *)sender
-{
-    NSLog(@"Touch Stack");
-    self.stackOfCardViews = nil;
-    self.stackView = nil;
-    [self updateUI];
 }
 
 #pragma mark - cards stack
@@ -146,16 +166,29 @@
 {
     if (![self.stackOfCardViews containsObject:cardView]) {
         [self.stackOfCardViews addObject:cardView];
+        
+        [self.cardsContainerView bringSubviewToFront:cardView];
+        [self.stackView addSubview:cardView];
+        [self animateMoveCardView:cardView toFrame:self.stackView.bounds];
     }
 }
 
-- (void)moveStackBy:(CGPoint)translation
+- (void)attachStackToPoint:(CGPoint)point
 {
-    CGFloat x = self.stackView.bounds.origin.x + translation.x;
-    CGFloat y = self.stackView.bounds.origin.y + translation.y;
-    CGFloat height = self.stackView.bounds.size.height;
-    CGFloat width = self.stackView.bounds.size.width;
-    [self.stackView setFrame:CGRectMake(x, y, width, height)];
+    self.attachment = [[UISnapBehavior alloc] initWithItem:self.stackView snapToPoint:point];
+    [self.animator addBehavior:self.attachment];
+}
+
+- (void)dismissStackOfCards
+{
+    NSLog(@"Dismissing Stack");
+    for (CardView *cardView in self.stackOfCardViews) {
+        [self.cardsContainerView addSubview:cardView];
+    }
+    self.stackOfCardViews = nil;
+    [self.stackView removeFromSuperview];
+    self.stackView = nil;
+    [self updateUI];
 }
 
 #pragma mark - UI update
@@ -226,6 +259,7 @@
         // set gestures
         [cv addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchCard:)]];
         [cv addGestureRecognizer:[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchCard:)]];
+        [cv addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panStackOfCards:)]];
     }
 }
 
@@ -247,23 +281,25 @@
     grid.minimumNumberOfCells = MAX(self.numberOfCardsInGame, self.cardViews.count);
     NSLog(@"%@", [grid description]);
     
+    for (CardView *cardView in self.cardViews) {
+        if (![self.stackOfCardViews containsObject:cardView]) {
+            NSUInteger index = [self.cardViews indexOfObject:cardView];
+            CGRect frame = CGRectInset([grid FrameOfCellAtIndex:index], 3, 3);
+            [self animateMoveCardView:cardView toFrame:frame];
+        }
+    }
+}
+
+- (void)animateMoveCardView:(CardView *)cardView toFrame:(CGRect)frame
+{
     __weak GameViewController *weakSelf = self;
     [UIView animateWithDuration:MOVE_DURATION
                           delay: 0.0
                         options:UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
-        for (CardView *cv in weakSelf.cardViews) {
-            if (![weakSelf.stackOfCardViews containsObject:cv]) {
-                NSUInteger index = [weakSelf.cardViews indexOfObject:cv];
-                CGRect newFrame = CGRectInset([grid FrameOfCellAtIndex:index], 3, 3);
-                [cv setFrame:newFrame];
-                [weakSelf updateUIForCardView:cv];
-            } else {
-                [cv setFrame:weakSelf.stackView.frame];
-                [weakSelf updateUIForCardView:cv];
-            }
+            [cardView setFrame:frame];
+            [weakSelf updateUIForCardView:cardView];
         }
-    }
                      completion:nil];
 }
 
