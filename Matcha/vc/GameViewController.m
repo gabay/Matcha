@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIView *cardsContainerView;
 @property (strong, nonatomic) NSMutableArray *cardViews;
 @property (strong, nonatomic) CardMatchingGame *game;
-@property (strong, nonatomic) Grid *grid;
 @property (strong, nonatomic) NSMutableArray *stackOfCardViews;
 @property (strong, nonatomic) UIView *stackView;
 @end
@@ -27,6 +26,7 @@
 #define MOVE_DURATION 0.5
 
 #define CARD_ASPECT_RATIO 0.7
+#define STACK_PORTION_OF_VIEW 0.3
 
 #pragma mark - Members
 
@@ -47,21 +47,6 @@
     return _game;
 }
 
-- (Grid *)grid
-{
-    if (!_grid) {
-        _grid = [[Grid alloc] init];
-        _grid.size = self.cardsContainerView.bounds.size;
-        _grid.cellAspectRatio = CARD_ASPECT_RATIO;
-        _grid.minimumNumberOfCells = MAX(self.numberOfCardsInGame, self.cardViews.count);
-        NSLog(@"%@", [_grid description]);
-        if (!_grid.inputsAreValid) {
-            _grid = nil;
-        }
-    }
-    return _grid;
-}
-
 - (NSMutableArray *)stackOfCardViews
 {
     if (!_stackOfCardViews) {
@@ -73,7 +58,11 @@
 - (UIView *)stackView
 {
     if (!_stackView) {
-        _stackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.grid.cellSize.width, self.grid.cellSize.height)];
+        CGFloat width = self.view.bounds.size.width * STACK_PORTION_OF_VIEW;
+        CGFloat height = width / CARD_ASPECT_RATIO;
+        _stackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+        _stackView.backgroundColor = nil;
+        _stackView.opaque = NO;
         [_stackView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panStackOfCards:)]];
         [_stackView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchStackOfCards:)]];
     }
@@ -157,7 +146,6 @@
 {
     if (![self.stackOfCardViews containsObject:cardView]) {
         [self.stackOfCardViews addObject:cardView];
-        [cardView setFrame:self.stackView.frame];
     }
 }
 
@@ -165,8 +153,8 @@
 {
     CGFloat x = self.stackView.bounds.origin.x + translation.x;
     CGFloat y = self.stackView.bounds.origin.y + translation.y;
-    CGFloat height = self.grid.cellSize.height;
-    CGFloat width = self.grid.cellSize.width;
+    CGFloat height = self.stackView.bounds.size.height;
+    CGFloat width = self.stackView.bounds.size.width;
     [self.stackView setFrame:CGRectMake(x, y, width, height)];
 }
 
@@ -253,17 +241,25 @@
 
 - (void)animateMoveCardViews {
     // Generate a new grid each time
-    self.grid = nil;
+    Grid *grid = [[Grid alloc] init];
+    grid.size = self.cardsContainerView.bounds.size;
+    grid.cellAspectRatio = CARD_ASPECT_RATIO;
+    grid.minimumNumberOfCells = MAX(self.numberOfCardsInGame, self.cardViews.count);
+    NSLog(@"%@", [grid description]);
+    
     __weak GameViewController *weakSelf = self;
     [UIView animateWithDuration:MOVE_DURATION
                           delay: 0.0
                         options:UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
         for (CardView *cv in weakSelf.cardViews) {
-            if (![self.stackOfCardViews containsObject:cv]) {
+            if (![weakSelf.stackOfCardViews containsObject:cv]) {
                 NSUInteger index = [weakSelf.cardViews indexOfObject:cv];
-                CGRect newFrame = CGRectInset([weakSelf.grid FrameOfCellAtIndex:index], 3, 3);
+                CGRect newFrame = CGRectInset([grid FrameOfCellAtIndex:index], 3, 3);
                 [cv setFrame:newFrame];
+                [weakSelf updateUIForCardView:cv];
+            } else {
+                [cv setFrame:weakSelf.stackView.frame];
                 [weakSelf updateUIForCardView:cv];
             }
         }
