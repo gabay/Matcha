@@ -165,8 +165,7 @@
         } else if (sender.state == UIGestureRecognizerStateChanged) {
             self.attachment.snapPoint = gesturePoint;
         } else if (sender.state == UIGestureRecognizerStateEnded) {
-            [self.animator removeBehavior:self.attachment];
-            self.attachment = nil;
+          // let the animation roll out
         }
     }
 }
@@ -187,6 +186,9 @@
 
 - (void)attachStackToPoint:(CGPoint)point
 {
+    if (self.attachment) {
+        [self.animator removeBehavior:self.attachment];
+    }
     self.attachment = [[UISnapBehavior alloc] initWithItem:self.stackView snapToPoint:point];
     [self.animator addBehavior:self.attachment];
 }
