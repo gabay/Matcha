@@ -179,7 +179,8 @@
         [self.stackOfCardViews addObject:cardView];
         
         [self.cardsContainerView bringSubviewToFront:cardView];
-        [self moveCardView:cardView toSuperview:self.stackView];
+        cardView.frame = [self.cardsContainerView convertRect:cardView.frame toView:self.stackView];
+        [self.stackView addSubview:cardView];
         [self animateMoveCardView:cardView toFrame:self.stackView.bounds];
     }
 }
@@ -194,24 +195,13 @@
 {
     NSLog(@"Dismissing Stack");
     for (CardView *cardView in self.stackOfCardViews) {
-        [self moveCardView:cardView toSuperview:self.cardsContainerView];
+        cardView.frame = [self.stackView convertRect:cardView.frame toView:self.cardsContainerView];
         [self.cardsContainerView addSubview:cardView];
     }
     self.stackOfCardViews = nil;
     [self.stackView removeFromSuperview];
     self.stackView = nil;
     [self updateUI];
-}
-
-- (void)moveCardView:(CardView *)cardView toSuperview:(UIView *)superview
-{
-    UIView *previousSuperview = cardView.superview;
-    [superview addSubview:cardView];
-    CGRect originalFrame = cardView.frame;
-    originalFrame.origin.x += previousSuperview.frame.origin.x - superview.frame.origin.x;
-    originalFrame.origin.y += previousSuperview.frame.origin.y - superview.frame.origin.y;
-
-    cardView.frame = originalFrame;
 }
 
 #pragma mark - UI update
