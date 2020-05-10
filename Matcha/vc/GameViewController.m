@@ -146,6 +146,14 @@
     [self updateUI];
 }
 
+- (IBAction)pinchCards:(UIPinchGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        for (CardView *cardView in self.cardViews) {
+            [self stackCardView:cardView];
+        }
+    }
+}
+
 - (IBAction)pinchCard:(UIPinchGestureRecognizer *)sender
 {
     NSLog(@"Pinch card");

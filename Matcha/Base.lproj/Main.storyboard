@@ -65,6 +65,10 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIB-2i-HW8">
                                 <rect key="frame" x="8" y="96" width="398" height="649"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="iwz-G6-NYm" appends="YES" id="5WP-kF-OLn"/>
+                                </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jB7-Si-NsW">
                                 <rect key="frame" x="8" y="753" width="115" height="60"/>
@@ -101,6 +105,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBX-qP-XQL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="iwz-G6-NYm">
+                    <connections>
+                        <action selector="pinchCards:" destination="8QJ-w3-Fbn" id="nwz-yU-rls"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-349.27536231884062" y="292.63392857142856"/>
         </scene>
@@ -168,6 +177,10 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHt-BA-wYp">
                                 <rect key="frame" x="8" y="96" width="398" height="649"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5ef-pS-AWO" appends="YES" id="dkJ-H0-KFI"/>
+                                </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhg-tk-JTE">
                                 <rect key="frame" x="8" y="753" width="115" height="60"/>
@@ -201,6 +214,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="5ef-pS-AWO">
+                    <connections>
+                        <action selector="pinchCards:" destination="BYZ-38-t0r" id="DJt-6H-tnO"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-349.27536231884062" y="-431.25"/>
         </scene>
