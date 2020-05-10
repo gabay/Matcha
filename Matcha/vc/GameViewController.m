@@ -206,7 +206,7 @@
     originalFrame.origin.x += previousSuperview.frame.origin.x - superview.frame.origin.x;
     originalFrame.origin.y += previousSuperview.frame.origin.y - superview.frame.origin.y;
 
-    [cardView setFrame:originalFrame];
+    cardView.frame = originalFrame;
 }
 
 #pragma mark - UI update
@@ -315,7 +315,7 @@
     [UIView animateWithDuration:MOVE_DURATION
                           delay: 0.0
                         options:UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{[cardView setFrame:frame];}
+                     animations:^{cardView.frame = frame;}
                      completion:nil];
 }
 
@@ -327,7 +327,7 @@
     [UIView transitionWithView:cardView
                       duration:MOVE_DURATION
                        options:UIViewAnimationOptionBeginFromCurrentState
-                    animations:^{[cardView setFrame:CGRectMake(x, y, 0, 0)];}
+                    animations:^{cardView.frame = CGRectMake(x, y, 0, 0);}
                     completion:^(BOOL fin){[cardView removeFromSuperview];}];
 }
 

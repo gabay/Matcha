@@ -22,8 +22,8 @@ static const double FONT_SIZE = 20;
     if (!self.moves) {
         NSLog(@"HistoryViewController: Filling with test data");
         self.moves = @[
-            @[[NSNumber numberWithInt:4],[[NSAttributedString alloc] initWithString:@"item 1"]],
-            @[[NSNumber numberWithInt:-2], [[NSAttributedString alloc] initWithString:@"item 2" attributes:@{NSForegroundColorAttributeName: [UIColor redColor]}]],
+            @[@4,[[NSAttributedString alloc] initWithString:@"item 1"]],
+            @[@-2, [[NSAttributedString alloc] initWithString:@"item 2" attributes:@{NSForegroundColorAttributeName: [UIColor redColor]}]],
         ];
     }
 }
