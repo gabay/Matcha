@@ -14,6 +14,7 @@
 @interface GameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UIView *cardsContainerView;
+@property (weak, nonatomic) IBOutlet UIButton *draw3Button;
 @property (strong, nonatomic) NSMutableArray *cardViews;
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (strong, nonatomic) NSMutableArray *stackOfCardViews;
@@ -47,6 +48,7 @@
         _game = [[CardMatchingGame alloc] initWithCardCount:self.numberOfCardsInGame
                                                   usingDeck:[self makeDeck]
                                                   matchSize:[self getMatchSize]];
+        [self enableDraw3Button];
     }
     return _game;
 }
@@ -134,9 +136,12 @@
 - (IBAction)touchDeal3:(UIButton *)sender
 {
     NSLog(@"Touch Draw3 button");
-    [self.game drawCard];
-    [self.game drawCard];
-    [self.game drawCard];
+    for (int i = 0; i < 3; i++) {
+        if (![self.game drawCard]) {
+            [self disableDraw3Button];
+            break;
+        }
+    }
     
     [self updateUI];
 }
@@ -247,6 +252,7 @@
     while (self.game.cardsCount < self.numberOfCardsInGame) {
         if (![self.game drawCard]) {
             // out of cards :)
+            [self disableDraw3Button];
             break;
         };
     }
@@ -279,6 +285,20 @@
         [cv addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchCard:)]];
         [cv addGestureRecognizer:[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchCard:)]];
         [cv addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panStackOfCards:)]];
+    }
+}
+
+- (void)disableDraw3Button
+{
+    if (self.draw3Button) {
+        self.draw3Button.enabled = NO;
+    }
+}
+
+- (void)enableDraw3Button
+{
+    if (self.draw3Button) {
+        self.draw3Button.enabled = YES;
     }
 }
 
